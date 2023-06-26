@@ -30,6 +30,16 @@ function love.mousepressed(x, y, button, istouch, presses)
     end
 end
 
+function love.keypressed(key, scancode, isrepeat)
+    if key == "escape" and game.state.running then
+        if game.state.paused then
+            game.state.paused = false
+        else
+            game.state.paused = true
+        end
+    end
+end
+
 function  love.update(dt)
     -- Update mouse position every dt
     mouse_x, mouse_y = love.mouse.getPosition()
@@ -39,7 +49,7 @@ function  love.update(dt)
         menu:run(mouseClick)
         mouseClick = false
     elseif game.state.running then
-        
+
     elseif game.state.quit then
         quit:run(mouseClick)
         mouseClick = false
