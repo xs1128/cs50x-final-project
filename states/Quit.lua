@@ -20,7 +20,7 @@ function Quit:load()
         -- Quit Button (color not set)
         Button(self.funcs.backToMenu, "Back To Menu", "center", nil, nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.60),
         Button(self.funcs.quitGame, "Confirm", "center", nil, nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.75)
-    }
+    }    
 
 end
 
@@ -50,6 +50,7 @@ function Quit:draw()
     love.graphics.setFont(self.largeFont)
     Text("Are You Sure To Quit The Game?", 0, love.graphics.getHeight() * 0.3, nil, love.graphics.getWidth(), "center", 1):draw()
     love.graphics.setFont(self.mainFont)
+
     for _, button in pairs(self.buttons) do
         button:draw()
     end

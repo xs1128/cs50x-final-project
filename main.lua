@@ -16,11 +16,12 @@ function love.load()
     mouse_x, mouse_y = 0, 0
 
     Background:load()
-    Quit:load()
+    
     game = Game()
     menu = Menu()
     --background = Background()
     --quit = Quit() 
+    Quit:load()
 end
 
 -- Detect anytime mouse is pressed

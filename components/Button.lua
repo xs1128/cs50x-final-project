@@ -43,7 +43,7 @@ function Button(func, text, text_align, text_color, text_x, text_y, width, heigh
             return false
         end,
 
-        click = function(slef)
+        click = function(self)
             func()
         end,
 
