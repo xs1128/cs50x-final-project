@@ -31,7 +31,7 @@ function Menu()
 
         -- Draw each button
         draw = function(self)
-            background:draw()
+            --Background:draw()
             for _, button in pairs(buttons) do
                 button:draw()
             end   

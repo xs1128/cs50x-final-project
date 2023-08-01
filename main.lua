@@ -15,10 +15,12 @@ function love.load()
     -- Initialize mouse x, y position
     mouse_x, mouse_y = 0, 0
 
+    Background:load()
+    Quit:load()
     game = Game()
     menu = Menu()
-    background = Background()
-    quit = Quit()
+    --background = Background()
+    --quit = Quit() 
 end
 
 -- Detect anytime mouse is pressed
@@ -45,13 +47,13 @@ function  love.update(dt)
     mouse_x, mouse_y = love.mouse.getPosition()
 
     if game.state.menu then
-        background:updateMenuBg(dt)
+        Background:update(dt)
         menu:run(mouseClick)
         mouseClick = false
     elseif game.state.running then
 
     elseif game.state.quit then
-        quit:run(mouseClick)
+        Quit:runButtonFunction(mouseClick)
         mouseClick = false
     end
 end
@@ -59,11 +61,12 @@ end
 function love.draw()
     love.graphics.setFont(mainFont)
     if game.state.menu then
+        Background:draw()
         menu:draw()
     elseif game.state.running or game.state.paused then
         game:draw(game.state.paused)
     elseif game.state.quit then
-        quit:draw()
+        Quit:draw()
     end
     
     -- Show cursor if game is not running
