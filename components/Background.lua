@@ -1,29 +1,30 @@
-function Background()
-    local backgroundImages = {
-        -- Background import from https://opengameart.org/content/generic-platformer-tileset-16x16-background
-        -- Cloud is modified (given transparent background)
-        cloud = love.graphics.newImage("assets/images/2015-02-26 [DB32](Generic Platformer)(Clouds).png"),
-        mountain = love.graphics.newImage("assets/images/2015-02-26 [DB32](Generic Platformer)(Mountains).png")
-    }
+local Background = {}
 
-    return {
-        cloud = {
-            x = 0,
-            speed = -30
-        },
+function Background:load()
+    self:loadAssets()
+    self.cloudX = 0
+    self.cloudSpeed = -30
+end
 
-        draw = function(self)
-            love.graphics.draw(backgroundImages.mountain, 0, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
-            love.graphics.draw(backgroundImages.cloud, self.cloud.x, self.cloud.y, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
-        end,
+function Background:loadAssets()
+    self.cloud = love.graphics.newImage("assets/images/2015-02-26 [DB32](Generic Platformer)(Clouds).png")
+    self.mountain = love.graphics.newImage("assets/images/2015-02-26 [DB32](Generic Platformer)(Mountains).png")
+end
 
-        updateMenuBg = function(self, dt)
-            self.cloud.x = self.cloud.x + dt * self.cloud.speed
-            if self.cloud.x < - love.graphics.getWidth() then
-                self.cloud.x = love.graphics.getWidth()
-            end
-        end
-    }
+function Background:update(dt)
+    Background:movingCloud(dt)
+end
+
+function Background:movingCloud(dt)
+    self.cloudX = self.cloudX + dt * self.cloudSpeed
+    if self.cloudX < - love.graphics.getWidth() then
+        self.cloudX = love.graphics.getWidth()
+    end
+end
+
+function Background:draw()
+    love.graphics.draw(self.mountain, 0, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
+    love.graphics.draw(self.cloud, self.cloudX, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
 end
 
 return Background

@@ -1,8 +1,8 @@
 local Button = require "components.Button"
+local Menu = {}
 
-function Menu()
-
-    local funcs = {
+function Menu:load()
+    self.funcs = { 
         startNewGame = function()
             game:startNewGame()
         end,
@@ -11,32 +11,31 @@ function Menu()
             game:changeGameState("quit")
         end
     }
-    local buttons = {
+    self.buttons = {
         -- Quit Button (color not set)
-        Button(funcs.startNewGame, "Start Game", "center", nil, nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.50),
+        Button(self.funcs.startNewGame, "Start Game", "center", nil, nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.50),
         Button(nil, "Settings", "center", nil, nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.65),
-        Button(funcs.quitGame, "Quit Game", "center", nil, nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.80)
+        Button(self.funcs.quitGame, "Quit Game", "center", nil, nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.80)
     }
-    
-    return {
-        -- Run the function on button if is clicked
-        run = function(self, clicked)
-            for name, button in pairs(buttons) do
-                if button:checkHover(mouse_x, mouse_y) and clicked then
-                    love.audio.play(buttonClickSound)
-                    button:click()
-                end
-            end
-        end,
+end
 
-        -- Draw each button
-        draw = function(self)
-            background:draw()
-            for _, button in pairs(buttons) do
-                button:draw()
-            end   
+function Menu:update(dt)
+
+end
+
+function Menu:runButtonFunction(clicked)
+    for name, button in pairs(self.buttons) do
+        if button:checkHover(mouse_x, mouse_y) and clicked then
+            love.audio.play(buttonClickSound)
+            button:click()
         end
-    }
+    end
+end
+
+function Menu:draw()
+    for _, button in pairs(self.buttons) do
+        button:draw()
+    end 
 end
 
 return Menu
