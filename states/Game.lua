@@ -25,6 +25,8 @@ function Game()
             if faded then
                 Text("Game Paused", 0, love.graphics.getHeight() * 0.3, nil, love.graphics.getWidth(), "center", 1):draw()
             end
+            -- Draw Game 
+
         end,
 
         update = function(self, dt)

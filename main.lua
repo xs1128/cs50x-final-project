@@ -31,12 +31,12 @@ function love.mousepressed(x, y, button, istouch, presses)
 end
 
 function love.keypressed(key, scancode, isrepeat)
-    if key == "escape" and game.state.running then
-        if game.state.paused then
-            game.state.paused = false
-        else
-            game.state.paused = true
-        end
+    if game.state.running then
+        -- Implement paused function
+        if key == "escape" then game:changeGameState("paused") end 
+    elseif game.state.paused then
+        -- Return to game
+        if key == "escape" then game:changeGameState("running") end     
     end
 end
 
