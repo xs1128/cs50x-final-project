@@ -9,7 +9,7 @@ function Quit:load()
     self.largeFont = love.graphics.newFont(self.fontFilePath, 60)
     self.funcs = {
         backToMenu = function()
-            game:changeGameState("menu")
+            changeGameState("menu")
         end,
 
         quitGame = function()

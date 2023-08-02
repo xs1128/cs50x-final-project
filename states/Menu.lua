@@ -4,11 +4,11 @@ local Menu = {}
 function Menu:load()
     self.funcs = { 
         startNewGame = function()
-            game:startNewGame()
+            changeGameState("running")
         end,
 
         quitGame = function()
-            game:changeGameState("quit")
+            changeGameState("quit")
         end
     }
     self.buttons = {
