@@ -1,8 +1,10 @@
 local love = require "love"
 local Menu = require "states.Menu"
 local Game = require "states.Game"
-local Background = require "components.Background"
 local Quit = require "states.Quit"
+local Background = require "components.Background"
+local Player = require "objects.Player"
+local Map = require "components.Map"
 
 function love.load()
     -- Import center_ptr cursor from http://www.rw-designer.com/cursor-set/comix
@@ -16,12 +18,9 @@ function love.load()
     mouse_x, mouse_y = 0, 0
 
     Background:load()
-    
     Game:load()
     Menu:load()
-    --background = Background()
-    --quit = Quit() 
-    Quit:load()
+    Quit:load()    
 end
 
 function  love.update(dt)
@@ -29,24 +28,47 @@ function  love.update(dt)
     mouse_x, mouse_y = love.mouse.getPosition()
 
     if Game.state.menu then
-        Background:update(dt)
+        Background:update(dt, Game.state.paused)
         Menu:runButtonFunction(mouseClick)
         mouseClick = false
     elseif Game.state.running then
         Game:update(dt)
+        Background:update(dt, Game.state.paused)
+        World:update(dt)
     elseif Game.state.quit then
         Quit:runButtonFunction(mouseClick)
         mouseClick = false
     end
 end
 
---global function
-function changeGameState(state)
-    Game.state.menu = state == 'menu'
-    Game.state.running = state == 'running'
-    Game.state.paused = state == 'paused'
-    Game.state.ended = state == 'ended'
-    Game.state.quit = state == 'quit'
+function love.draw()
+    love.graphics.setFont(mainFont)
+    if Game.state.menu then
+        Background:draw("menu")
+        Menu:draw()
+    elseif Game.state.running or Game.state.paused then
+        Background:draw("running")
+        Game:draw(Game.state.paused)
+    elseif Game.state.quit then
+        Quit:draw()
+    end
+    
+    -- Show cursor if game is not running
+    if not Game.state.running then
+        love.mouse.setCursor(cursor)
+    end
+    -- Display real time user FPS
+    --love.graphics.print("FPS: "..love.timer.getFPS(), love.graphics.getWidth() * 0.9, love.graphics.getHeight() * 0.95)
+end
+
+function beginContact(a, b, collision)
+    --if Coin:beginContact(a, b, collision) then return end
+    --if Obstacle:beginContact(a, b, collision) then return end
+    Player:beginContact(a, b, collision)
+end
+
+function endContact(a, b, collision)
+    Player:endContact(a, b, collision)
 end
 
 -- Detect anytime mouse is pressed
@@ -61,28 +83,20 @@ end
 function love.keypressed(key, scancode, isrepeat)
     if Game.state.running then
         -- Implement paused function
-        if key == "escape" then changeGameState("paused") end 
+        if key == "escape" then changeGameState("paused") end
+        Player:jump(key) 
     elseif Game.state.paused then
         -- Return to game
         if key == "escape" then changeGameState("running") end     
     end
 end
 
-function love.draw()
-    love.graphics.setFont(mainFont)
-    if Game.state.menu then
-        Background:draw()
-        Menu:draw()
-    elseif Game.state.running or Game.state.paused then
-        Game:draw(Game.state.paused)
-    elseif Game.state.quit then
-        Quit:draw()
+--global function
+    function changeGameState(state)
+        Game.state.menu = state == 'menu'
+        Game.state.running = state == 'running'
+        Game.state.paused = state == 'paused'
+        Game.state.ended = state == 'ended'
+        Game.state.quit = state == 'quit'
     end
     
-    -- Show cursor if game is not running
-    if not Game.state.running then
-        love.mouse.setCursor(cursor)
-    end
-    -- Display real time user FPS
-    --love.graphics.print("FPS: "..love.timer.getFPS(), love.graphics.getWidth() * 0.9, love.graphics.getHeight() * 0.95)
-end
