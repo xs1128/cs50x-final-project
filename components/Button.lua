@@ -1,6 +1,6 @@
 local Text = require "components.Text"
 
-function Button(func, text, text_align, text_color, text_x, text_y, width, height, button_color, btn_x, btn_y)
+function Button(func, text, text_align, text_x, text_y, width, height, button_color, btn_x, btn_y)
     local btn_text = {}
     func = func or function() print("Non-Functional Button") end
 
@@ -16,7 +16,6 @@ function Button(func, text, text_align, text_color, text_x, text_y, width, heigh
 
     return {
         text = text or "No Text",
-        text_color = text_color or {r = 1, g = 1, b = 1},
         text_x = text_x or btn_x or 0,
         text_y = text_y or btn_y or 0,
         width = width or 100,
@@ -24,14 +23,10 @@ function Button(func, text, text_align, text_color, text_x, text_y, width, heigh
         button_color = button_color or {r= 1, g = 1, b = 1, opacity = 0.5},
         btn_x = btn_x or 0,
         btn_y = btn_y or 0,
-        text_component = Text(text, btn_text.x, btn_text.y, "p", width, text_align, 1),
+        text_component = Text(text, btn_text.x, btn_text.y, width, text_align, 1),
 
         setButtonColor = function(self, red, green, blue)
             self.button_color = {r = red, g = green, b = blue}
-        end,
-
-        setTextColor = function(self, red, green, blue)
-            self.text_color = {r = red, g = green, b = blue}
         end,
 
         checkHover = function(self, mouse_x, mouse_y)
@@ -53,9 +48,7 @@ function Button(func, text, text_align, text_color, text_x, text_y, width, heigh
             love.graphics.rectangle("fill", self.btn_x, self.btn_y, self.width, self.height)
             love.graphics.setColor(1, 1, 1, 1)
 
-            self.text_component:setColor(self.text_color["r"], self.text_color["g"], self.text_color["b"])
             self.text_component:draw()
-            
         end
     }
 end
