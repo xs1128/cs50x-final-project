@@ -5,7 +5,7 @@ local Background = require "components.Background"
 local Quit = require "states.Quit"
 
 function love.load()
-    -- Import cnter_ptr cursor from http://www.rw-designer.com/cursor-set/comix
+    -- Import center_ptr cursor from http://www.rw-designer.com/cursor-set/comix
     cursor = love.mouse.newCursor("assets/images/cursor.png")
     -- Import new font from https://tinyworlds.itch.io/free-pixel-font-thaleah
     mainFont = love.graphics.newFont("assets/fonts/ThaleahFat.ttf", 50)
@@ -17,61 +17,70 @@ function love.load()
 
     Background:load()
     
-    game = Game()
-    menu = Menu()
+    Game:load()
+    Menu:load()
     --background = Background()
     --quit = Quit() 
     Quit:load()
-end
-
--- Detect anytime mouse is pressed
-function love.mousepressed(x, y, button, istouch, presses)
-    if button == 1 then
-        if game.state.menu or game.state.quit then
-            mouseClick = true
-        end
-    end
-end
-
-function love.keypressed(key, scancode, isrepeat)
-    if game.state.running then
-        -- Implement paused function
-        if key == "escape" then game:changeGameState("paused") end 
-    elseif game.state.paused then
-        -- Return to game
-        if key == "escape" then game:changeGameState("running") end     
-    end
 end
 
 function  love.update(dt)
     -- Update mouse position every dt
     mouse_x, mouse_y = love.mouse.getPosition()
 
-    if game.state.menu then
+    if Game.state.menu then
         Background:update(dt)
-        menu:run(mouseClick)
+        Menu:runButtonFunction(mouseClick)
         mouseClick = false
-    elseif game.state.running then
-
-    elseif game.state.quit then
+    elseif Game.state.running then
+        Game:update(dt)
+    elseif Game.state.quit then
         Quit:runButtonFunction(mouseClick)
         mouseClick = false
     end
 end
 
+--global function
+function changeGameState(state)
+    Game.state.menu = state == 'menu'
+    Game.state.running = state == 'running'
+    Game.state.paused = state == 'paused'
+    Game.state.ended = state == 'ended'
+    Game.state.quit = state == 'quit'
+end
+
+-- Detect anytime mouse is pressed
+function love.mousepressed(x, y, button, istouch, presses)
+    if button == 1 then
+        if Game.state.menu or Game.state.quit then
+            mouseClick = true
+        end
+    end
+end
+
+function love.keypressed(key, scancode, isrepeat)
+    if Game.state.running then
+        -- Implement paused function
+        if key == "escape" then changeGameState("paused") end 
+    elseif Game.state.paused then
+        -- Return to game
+        if key == "escape" then changeGameState("running") end     
+    end
+end
+
 function love.draw()
     love.graphics.setFont(mainFont)
-    if game.state.menu then
+    if Game.state.menu then
         Background:draw()
-        menu:draw()
-    elseif game.state.running or game.state.paused then
-        game:draw(game.state.paused)
-    elseif game.state.quit then
+        Menu:draw()
+    elseif Game.state.running or Game.state.paused then
+        Game:draw(Game.state.paused)
+    elseif Game.state.quit then
         Quit:draw()
     end
     
     -- Show cursor if game is not running
-    if not game.state.running then
+    if not Game.state.running then
         love.mouse.setCursor(cursor)
     end
     -- Display real time user FPS
