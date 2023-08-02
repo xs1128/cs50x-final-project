@@ -11,20 +11,28 @@ function Background:loadAssets()
     self.mountain = love.graphics.newImage("assets/images/2015-02-26 [DB32](Generic Platformer)(Mountains).png")
 end
 
-function Background:update(dt)
-    Background:movingCloud(dt)
+function Background:update(dt, paused)
+    self:movingCloud(dt, paused)
 end
 
-function Background:movingCloud(dt)
-    self.cloudX = self.cloudX + dt * self.cloudSpeed
-    if self.cloudX < - love.graphics.getWidth() then
-        self.cloudX = love.graphics.getWidth()
+function Background:movingCloud(dt, paused)
+    if not paused then
+        self.cloudX = self.cloudX + dt * self.cloudSpeed
+        if self.cloudX < - love.graphics.getWidth() then
+            self.cloudX = love.graphics.getWidth()
+        end
     end
 end
 
-function Background:draw()
-    love.graphics.draw(self.mountain, 0, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
-    love.graphics.draw(self.cloud, self.cloudX, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
+function Background:draw(state)
+    if state == "menu" then
+        love.graphics.draw(self.mountain, 0, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
+        love.graphics.draw(self.cloud, self.cloudX, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
+    elseif state == "running" then
+        love.graphics.draw(self.mountain, 0, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
+        love.graphics.draw(self.cloud, self.cloudX, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
+    end
+    
 end
 
 return Background

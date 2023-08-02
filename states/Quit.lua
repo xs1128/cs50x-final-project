@@ -4,12 +4,12 @@ local Text = require "components.Text"
 local Quit = {}
 
 function Quit:load()
-    self:loadAssets()
+    self.fontFilePath = "assets/fonts/ThaleahFat.ttf"
     self.mainFont = love.graphics.newFont(self.fontFilePath, 50)
-    self.largeFont = love.graphics.newFont(self.fontFilePath, 60)
+    self.largeFont = love.graphics.newFont(self.fontFilePath, 65)
     self.funcs = {
         backToMenu = function()
-            game:changeGameState("menu")
+            changeGameState("menu")
         end,
 
         quitGame = function()
@@ -18,14 +18,10 @@ function Quit:load()
     }
     self.buttons = {
         -- Quit Button (color not set)
-        Button(self.funcs.backToMenu, "Back To Menu", "center", nil, nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.60),
-        Button(self.funcs.quitGame, "Confirm", "center", nil, nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.75)
+        Button(self.funcs.backToMenu, "Back To Menu", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.60),
+        Button(self.funcs.quitGame, "Confirm", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.72)
     }    
 
-end
-
-function Quit:loadAssets()
-    self.fontFilePath = "assets/fonts/ThaleahFat.ttf"
 end
 
 function Quit:update(dt)
@@ -48,7 +44,7 @@ end
 
 function Quit:draw()
     love.graphics.setFont(self.largeFont)
-    Text("Are You Sure To Quit The Game?", 0, love.graphics.getHeight() * 0.3, nil, love.graphics.getWidth(), "center", 1):draw()
+    Text("Are You Sure To Quit The Game?", 0, love.graphics.getHeight() * 0.3, love.graphics.getWidth(), "center", 1):draw()
     love.graphics.setFont(self.mainFont)
 
     for _, button in pairs(self.buttons) do
