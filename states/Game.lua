@@ -1,6 +1,7 @@
 local Text = require "components.Text"
 local Map = require "components.Map"
 local Player = require "objects.Player"
+local Camera = require "components.Camera"
 
 local Game = {}
 
@@ -22,8 +23,11 @@ function Game:update(dt)
 end
 
 function Game:draw(faded)
-    Map.level:draw()
+    Map.level:draw(-Camera.x, -Camera.y, Camera.scale, Camera.scale)
+
+    Camera:apply()
     Player:draw()
+    Camera:clear()
     
     if faded then
         love.graphics.setColor(0, 0, 0, 0.5)

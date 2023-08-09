@@ -5,7 +5,7 @@ local Map = {}
 
 function Map:load()
     self.currentLevel = 1
-    self.lastLevel = 2
+    self.lastLevel = 1
 
     World = love.physics.newWorld(0, 2000)
     World:setCallbacks(beginContact, endContact)

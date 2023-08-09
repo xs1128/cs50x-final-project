@@ -6,12 +6,12 @@ function Player:load()
     self.startX = self.x
     self.startY = self.y
     self.width = 20
-    self.height = 60
+    self.height = 50
     -- Horizontal movement
     self.xvel = 0
     self.yvel = 100
-    self.maxSpeed = 400
-    self.acceleration =  4000
+    self.maxSpeed = 300
+    self.acceleration =  3000
     self.friction = 3500
     --Vertical movement
     self.gravity = 1000
@@ -48,8 +48,8 @@ function Player:loadAssets()
     self.spriteWidth = 16
     self.spriteHeight = 16
     self.animation = {
-        scale_x = 4,
-        scale_y = 4
+        scale_x = 3.5,
+        scale_y = 3.5
     }
 
     self.grid = anim8.newGrid(self.spriteWidth, self.spriteHeight, self.spriteSheet:getWidth(), self.spriteSheet:getHeight())
@@ -115,12 +115,12 @@ end
 
 function Player:move(dt)
     if love.keyboard.isDown("right") then
-        self.animation.scale_x = 4
+        self.animation.scale_x = 3.5
         self.anim = self.animation.horizontal
         self.xvel = math.min(self.xvel + self.acceleration * dt, self.maxSpeed)
 
     elseif love.keyboard.isDown("left") then
-        self.animation.scale_x = -4
+        self.animation.scale_x = -3.5
         self.anim = self.animation.horizontal
         self.xvel = math.max(-self.maxSpeed, self.xvel - self.acceleration * dt)
     else

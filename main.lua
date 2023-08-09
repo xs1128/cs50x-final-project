@@ -5,6 +5,7 @@ local Quit = require "states.Quit"
 local Background = require "components.Background"
 local Player = require "objects.Player"
 local Map = require "components.Map"
+local Camera = require "components.Camera"
 
 function love.load()
     -- Import center_ptr cursor from http://www.rw-designer.com/cursor-set/comix
@@ -34,6 +35,7 @@ function  love.update(dt)
     elseif Game.state.running then
         Game:update(dt)
         Background:update(dt, Game.state.paused)
+        Camera:setPosition(Player.x, 0)
         World:update(dt)
     elseif Game.state.quit then
         Quit:runButtonFunction(mouseClick)
@@ -47,7 +49,7 @@ function love.draw()
         Background:draw("menu")
         Menu:draw()
     elseif Game.state.running or Game.state.paused then
-        Background:draw("running")
+        Background:draw("running")        
         Game:draw(Game.state.paused)
     elseif Game.state.quit then
         Quit:draw()
@@ -83,11 +85,11 @@ end
 function love.keypressed(key, scancode, isrepeat)
     if Game.state.running then
         -- Implement paused function
-        if key == "escape" then changeGameState("paused") end
+        if key == "p" then changeGameState("paused") end
         Player:jump(key) 
     elseif Game.state.paused then
         -- Return to game
-        if key == "escape" then changeGameState("running") end     
+        if key == "p" then changeGameState("running") end     
     end
 end
 
