@@ -3,7 +3,6 @@ local Menu = require "states.Menu"
 local Game = require "states.Game"
 local Quit = require "states.Quit"
 local Background = require "components.Background"
-local Player = require "objects.Player"
 
 function love.load()
     -- Import center_ptr cursor from http://www.rw-designer.com/cursor-set/comix
@@ -63,16 +62,6 @@ function love.draw()
     --love.graphics.print("FPS: "..love.timer.getFPS(), love.graphics.getWidth() * 0.9, love.graphics.getHeight() * 0.95)
 end
 
-function beginContact(a, b, collision)
-    --if Coin:beginContact(a, b, collision) then return end
-    --if Obstacle:beginContact(a, b, collision) then return end
-    Player:beginContact(a, b, collision)
-end
-
-function endContact(a, b, collision)
-    Player:endContact(a, b, collision)
-end
-
 -- Detect anytime mouse is pressed
 function love.mousepressed(x, y, button, istouch, presses)
     if button == 1 then
@@ -84,12 +73,13 @@ end
 
 function love.keypressed(key, scancode, isrepeat)
     if Game.state.running then
-        -- Implement paused function
-        if key == "p" then changeGameState("paused") end
-        Player:jump(key) 
+        Game:keypress(key) 
+        -- Implement pause function
+        if key == "p" or key == "escape" then changeGameState("paused") end
+        
     elseif Game.state.paused then
         -- Return to game
-        if key == "p" then changeGameState("running") end     
+        if key == "p" or key == "escape" then changeGameState("running") end     
     end
 end
 

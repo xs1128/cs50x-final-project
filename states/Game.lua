@@ -2,6 +2,7 @@ local Text = require "components.Text"
 local Map = require "components.Map"
 local Player = require "objects.Player"
 local Camera = require "components.Camera"
+local Coin = require "objects.Coin"
 
 local Game = {}
 
@@ -21,12 +22,14 @@ function Game:update(dt)
     Camera:setPosition(Player.x, 0)
     Map:update(dt)
     Player:update(dt)
+    Coin:updateAll(dt)
 end
 
 function Game:draw(faded)
     Map.level:draw(-Camera.x, -Camera.y, Camera.scale, Camera.scale)
-    
+
     Camera:apply()
+    Coin:drawAll()
     Player:draw()
     Camera:clear()
     
@@ -36,6 +39,22 @@ function Game:draw(faded)
         love.graphics.setColor(1, 1, 1)
         Text("Game Paused", 0, love.graphics.getHeight() * 0.3, love.graphics.getWidth(), "center", 1):draw()
     end
+end
+
+function Game:keypress(key)
+    if self.state.running then
+        Player:jump(key)
+    end
+end
+
+function beginContact(a, b, collision)
+    if Coin:beginContact(a, b, collision) then return end
+    --if Obstacle:beginContact(a, b, collision) then return end
+    Player:beginContact(a, b, collision)
+end
+
+function endContact(a, b, collision)
+    Player:endContact(a, b, collision)
 end
 
 return Game

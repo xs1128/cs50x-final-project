@@ -16,6 +16,8 @@ function Player:load()
     --Vertical movement
     self.gravity = 1000
     self.initialYvel = -600
+    self.coins = 0
+    self.healths = {current = 3, max = 3}
 
     self.color = {
         red = 1,

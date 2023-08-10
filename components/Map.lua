@@ -2,6 +2,7 @@
 
 local STI = require "lib.sti"
 local Player = require "objects.Player"
+local Coin = require "objects.Coin"
 
 local Map = {}
 
@@ -20,13 +21,13 @@ function Map:init()
     self.level:box2d_init(World)
     self.solidLayer = self.level.layers.solid
     self.groundLayer = self.level.layers.ground
-    --self.entityLayer = self.level.layers.entity
+    self.entityLayer = self.level.layers.entity
 
     self.solidLayer.visible = false
-    --self.entityLayer.visible = false
+    self.entityLayer.visible = false
     MapWidth = self.groundLayer.width * 32
 
-    --self:spawnEntities()
+    self:spawnEntities()
 end
 
 function Map:nextLevel()
@@ -44,7 +45,7 @@ end
 
 function Map:clean()
     self.level:box2d_removeLayer("solid")
-    --Coin:removeAll()
+    Coin:removeAll()
     --Obstacle:removeAll()
 end
 
@@ -54,14 +55,14 @@ function Map:update(dt)
     end
 end
 
---[[ function Map:spawnEntities()
+function Map:spawnEntities()
     for _, i in pairs(self.entityLayer.objects) do
-        if i.type == "spike" then
-            Obstacle:new(i.x + i.width / 2, i.y + i.height / 2)
-        elseif i.type == "coin" then
+        --if i.type == "spike" then
+            --Obstacle:new(i.x + i.width / 2, i.y + i.height / 2)
+        if i.type == "coin" then
             Coin:new(i.x, i.y)
         end
     end
-end ]]--
+end
 
 return Map
