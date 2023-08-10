@@ -18,13 +18,14 @@ function Game:load()
 end
 
 function Game:update(dt)
+    Camera:setPosition(Player.x, 0)
     Map:update(dt)
     Player:update(dt)
 end
 
 function Game:draw(faded)
     Map.level:draw(-Camera.x, -Camera.y, Camera.scale, Camera.scale)
-
+    
     Camera:apply()
     Player:draw()
     Camera:clear()

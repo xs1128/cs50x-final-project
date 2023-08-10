@@ -1,3 +1,5 @@
+local Map = require "components.Map"
+
 local Background = {}
 
 function Background:load()
@@ -26,13 +28,39 @@ end
 
 function Background:draw(state)
     if state == "menu" then
-        love.graphics.draw(self.mountain, 0, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
-        love.graphics.draw(self.cloud, self.cloudX, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
+        -- make function that fllow user region time
+        self:drawImage()
     elseif state == "running" then
-        love.graphics.draw(self.mountain, 0, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
-        love.graphics.draw(self.cloud, self.cloudX, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
+        if Map.currentLevel == 1 then
+            self:drawImage()
+        elseif Map.currentLevel == 2 then
+            self:drawImage()
+            self:tintColor("evening0")
+        elseif Map.currentLevel == 3 then
+            self:drawImage()
+            self:tintColor("evening1")
+        end
     end
-    
+end
+
+function Background:drawImage()
+    love.graphics.draw(self.mountain, 0, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
+    love.graphics.draw(self.cloud, self.cloudX, 0, 0, love.graphics.getWidth() / 256, love.graphics.getHeight() / 144)
+end
+
+function Background:tintColor(time)
+    if time == "evening0" then
+        love.graphics.setColor(0.96, 0.5, 0.19, 0.1)
+        love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+        love.graphics.setColor(1, 1 ,1)
+    elseif time == "evening1" then
+        love.graphics.setColor(0.96, 0.5, 0.19, 0.2)
+        love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+        love.graphics.setColor(1, 1 ,1)
+    else
+        love.graphics.setColor(1, 1 ,1)
+        love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+    end
 end
 
 return Background

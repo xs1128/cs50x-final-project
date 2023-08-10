@@ -1,3 +1,5 @@
+-- rmb cite the tileset https://free-game-assets.itch.io/free-swamp-2d-tileset-pixel-art
+
 local STI = require "lib.sti"
 local Player = require "objects.Player"
 
@@ -5,7 +7,7 @@ local Map = {}
 
 function Map:load()
     self.currentLevel = 1
-    self.lastLevel = 1
+    self.lastLevel = 3
 
     World = love.physics.newWorld(0, 2000)
     World:setCallbacks(beginContact, endContact)
@@ -28,7 +30,7 @@ function Map:init()
 end
 
 function Map:nextLevel()
-    --self:clean()
+    self:clean()
     if self.currentLevel + 1 > self.lastLevel then
         -- destroy world change to congrats page
         changeGameState("menu")
@@ -47,7 +49,7 @@ function Map:clean()
 end
 
 function Map:update(dt)
-    if Player.x > MapWidth - 16 then
+    if Player.x > MapWidth - 64 then
         self:nextLevel()
     end
 end

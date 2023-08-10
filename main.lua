@@ -4,8 +4,6 @@ local Game = require "states.Game"
 local Quit = require "states.Quit"
 local Background = require "components.Background"
 local Player = require "objects.Player"
-local Map = require "components.Map"
-local Camera = require "components.Camera"
 
 function love.load()
     -- Import center_ptr cursor from http://www.rw-designer.com/cursor-set/comix
@@ -35,7 +33,6 @@ function  love.update(dt)
     elseif Game.state.running then
         Game:update(dt)
         Background:update(dt, Game.state.paused)
-        Camera:setPosition(Player.x, 0)
         World:update(dt)
     elseif Game.state.quit then
         Quit:runButtonFunction(mouseClick)
@@ -57,7 +54,10 @@ function love.draw()
     
     -- Show cursor if game is not running
     if not Game.state.running then
+        love.mouse.setVisible(true)
         love.mouse.setCursor(cursor)
+    else
+        love.mouse.setVisible(false)
     end
     -- Display real time user FPS
     --love.graphics.print("FPS: "..love.timer.getFPS(), love.graphics.getWidth() * 0.9, love.graphics.getHeight() * 0.95)

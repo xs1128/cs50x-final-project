@@ -2,7 +2,7 @@ local Player = {}
 
 function Player:load()
     self.x = 100
-    self.y = 300
+    self.y = 100
     self.startX = self.x
     self.startY = self.y
     self.width = 20
@@ -200,6 +200,5 @@ function Player:draw()
     self.anim:draw(self.spriteSheet, self.x, self.y, nil, self.animation.scale_x, self.animation.scale_y, self.spriteWidth / 2, self.spriteHeight / 2)
     love.graphics.setColor(1, 1, 1, 1)
 end
-
 
 return Player
