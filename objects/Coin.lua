@@ -68,7 +68,6 @@ function Coin:remove()
             self.physics.body:destroy()
             table.remove(activeCoins, _)
             Player:incrementCoins()
-            print(Player.coins)
         end
     end
 end

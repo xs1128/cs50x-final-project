@@ -3,19 +3,20 @@ local Map = require "components.Map"
 local Player = require "objects.Player"
 local Camera = require "components.Camera"
 local Coin = require "objects.Coin"
+local Obstacle = require "objects.Obstacle"
 
 local Game = {}
 
 function Game:load()
-    Map:load()
-    Player:load()
-    -- Table to store game states
     self.state = { 
         menu = true,
         running = false,
         paused = false,
         ended = false
     }
+
+    Map:load()
+    Player:load()
 end
 
 function Game:update(dt)
@@ -23,6 +24,9 @@ function Game:update(dt)
     Map:update(dt)
     Player:update(dt)
     Coin:updateAll(dt)
+    if self.state.menu then
+        Map:update(dt)
+    end
 end
 
 function Game:draw(faded)
@@ -30,6 +34,7 @@ function Game:draw(faded)
 
     Camera:apply()
     Coin:drawAll()
+    Obstacle:drawAll()
     Player:draw()
     Camera:clear()
     
@@ -45,16 +50,6 @@ function Game:keypress(key)
     if self.state.running then
         Player:jump(key)
     end
-end
-
-function beginContact(a, b, collision)
-    if Coin:beginContact(a, b, collision) then return end
-    --if Obstacle:beginContact(a, b, collision) then return end
-    Player:beginContact(a, b, collision)
-end
-
-function endContact(a, b, collision)
-    Player:endContact(a, b, collision)
 end
 
 return Game

@@ -3,6 +3,7 @@
 local STI = require "lib.sti"
 local Player = require "objects.Player"
 local Coin = require "objects.Coin"
+local Obstacle = require "objects.Obstacle"
 
 local Map = {}
 
@@ -34,6 +35,7 @@ function Map:nextLevel()
     self:clean()
     if self.currentLevel + 1 > self.lastLevel then
         -- destroy world change to congrats page
+        self.currentLevel = 1
         changeGameState("menu")
     else
         self.currentLevel = self.currentLevel + 1
@@ -46,23 +48,42 @@ end
 function Map:clean()
     self.level:box2d_removeLayer("solid")
     Coin:removeAll()
-    --Obstacle:removeAll()
+    Obstacle:removeAll()
 end
 
 function Map:update(dt)
     if Player.x > MapWidth - 64 then
         self:nextLevel()
     end
+    if Player.dead then
+        self:clean()
+        -- Reload Map entities and Player
+        Map:load()
+        Player:load()
+
+        Player.dead = false
+        changeGameState("menu")
+    end
 end
 
 function Map:spawnEntities()
     for _, i in pairs(self.entityLayer.objects) do
-        --if i.type == "spike" then
-            --Obstacle:new(i.x + i.width / 2, i.y + i.height / 2)
-        if i.type == "coin" then
+        if i.type == "trap" then
+            Obstacle:new(i.x + i.width / 2, i.y + i.height / 2)
+        elseif i.type == "coin" then
             Coin:new(i.x, i.y)
         end
     end
+end
+
+function beginContact(a, b, collision)
+    if Coin:beginContact(a, b, collision) then return end
+    if Obstacle:beginContact(a, b, collision) then return end
+    Player:beginContact(a, b, collision)
+end
+
+function endContact(a, b, collision)
+    Player:endContact(a, b, collision)
 end
 
 return Map

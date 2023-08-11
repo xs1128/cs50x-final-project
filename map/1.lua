@@ -10,7 +10,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 12,
-  nextobjectid = 84,
+  nextobjectid = 90,
   properties = {},
   tilesets = {
     {
@@ -675,6 +675,45 @@ return {
           y = 216,
           width = 0,
           height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 85,
+          name = "Trap",
+          type = "trap",
+          shape = "rectangle",
+          x = 640,
+          y = 384,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 86,
+          name = "Trap",
+          type = "trap",
+          shape = "rectangle",
+          x = 1344,
+          y = 384,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 89,
+          name = "Trap",
+          type = "trap",
+          shape = "rectangle",
+          x = 256,
+          y = 384,
+          width = 32,
+          height = 32,
           rotation = 0,
           visible = true,
           properties = {}

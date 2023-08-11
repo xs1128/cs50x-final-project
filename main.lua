@@ -10,6 +10,7 @@ function love.load()
     -- Import new font from https://tinyworlds.itch.io/free-pixel-font-thaleah
     mainFont = love.graphics.newFont("assets/fonts/ThaleahFat.ttf", 50)
     buttonClickSound = love.audio.newSource("assets/sfx/click.wav", "static")
+    hurtSFX = love.audio.newSource("assets/sfx/hurt.wav", "static")
     -- Prevent blurring 
     love.graphics.setDefaultFilter("nearest")
     -- Initialize mouse x, y position
@@ -18,7 +19,7 @@ function love.load()
     Background:load()
     Game:load()
     Menu:load()
-    Quit:load()    
+    Quit:load()
 end
 
 function  love.update(dt)
@@ -84,11 +85,11 @@ function love.keypressed(key, scancode, isrepeat)
 end
 
 --global function
-    function changeGameState(state)
-        Game.state.menu = state == 'menu'
-        Game.state.running = state == 'running'
-        Game.state.paused = state == 'paused'
-        Game.state.ended = state == 'ended'
-        Game.state.quit = state == 'quit'
-    end
+function changeGameState(state)
+    Game.state.menu = state == 'menu'
+    Game.state.running = state == 'running'
+    Game.state.paused = state == 'paused'
+    Game.state.ended = state == 'ended'
+    Game.state.quit = state == 'quit'
+end
     

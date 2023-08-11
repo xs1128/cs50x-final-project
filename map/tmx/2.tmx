@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="97">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="129">
  <editorsettings>
   <export target="../2.lua" format="lua"/>
  </editorsettings>
@@ -441,5 +441,69 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="4" name="entity"/>
+ <objectgroup color="#ffff00" id="4" name="entity">
+  <object id="101" name="Coin" type="coin" x="266.667" y="318.667">
+   <ellipse/>
+  </object>
+  <object id="102" name="Coin" type="coin" x="314.667" y="316.667">
+   <ellipse/>
+  </object>
+  <object id="103" name="Coin" type="coin" x="360.667" y="316">
+   <ellipse/>
+  </object>
+  <object id="106" name="Coin" type="coin" x="396.667" y="321.333">
+   <ellipse/>
+  </object>
+  <object id="107" name="Coin" type="coin" x="594.667" y="319.333">
+   <ellipse/>
+  </object>
+  <object id="108" name="Coin" type="coin" x="641.333" y="319.333">
+   <ellipse/>
+  </object>
+  <object id="109" name="Coin" type="coin" x="690" y="326">
+   <ellipse/>
+  </object>
+  <object id="110" name="Coin" type="coin" x="684.667" y="358.667">
+   <ellipse/>
+  </object>
+  <object id="111" name="Coin" type="coin" x="636.667" y="370">
+   <ellipse/>
+  </object>
+  <object id="112" name="Coin" type="coin" x="597.333" y="366.667">
+   <ellipse/>
+  </object>
+  <object id="113" name="Coin" type="coin" x="996.667" y="320">
+   <ellipse/>
+  </object>
+  <object id="114" name="Coin" type="coin" x="992" y="350">
+   <ellipse/>
+  </object>
+  <object id="115" name="Coin" type="coin" x="992" y="384.667">
+   <ellipse/>
+  </object>
+  <object id="116" name="Coin" type="coin" x="990.667" y="414.667">
+   <ellipse/>
+  </object>
+  <object id="117" name="Coin" type="coin" x="991.333" y="449.333">
+   <ellipse/>
+  </object>
+  <object id="118" name="Coin" type="coin" x="2311.33" y="400">
+   <ellipse/>
+  </object>
+  <object id="119" name="Coin" type="coin" x="2344" y="403.333">
+   <ellipse/>
+  </object>
+  <object id="120" name="Coin" type="coin" x="2386.67" y="402.667">
+   <ellipse/>
+  </object>
+  <object id="121" name="Coin" type="coin" x="2427.33" y="406">
+   <ellipse/>
+  </object>
+  <object id="122" name="Trap" type="trap" x="479.333" y="447.333" width="32" height="32"/>
+  <object id="124" name="Trap" type="trap" x="863.925" y="320.075" width="32" height="32" rotation="180.268"/>
+  <object id="125" name="Trap" type="trap" x="895.984" y="320.016" width="32" height="32" rotation="180.057"/>
+  <object id="126" name="Trap" type="trap" x="1248" y="448" width="32" height="32"/>
+  <object id="127" name="Trap" type="trap" x="1280" y="448" width="32" height="32"/>
+  <object id="128" name="Trap" type="trap" x="2304" y="448" width="64" height="32"/>
+ </objectgroup>
 </map>
