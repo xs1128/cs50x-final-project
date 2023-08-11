@@ -4,18 +4,14 @@ local Menu = {}
 
 function Menu:load()
     self.funcs = { 
-        startNewGame = function()
-            changeGameState("running")
-        end,
-
-        quitGame = function()
-            changeGameState("quit")
-        end
+        startNewGame = function() changeGameState("running") end,
+        settings = function() changeGameState("setting") end,
+        quitGame = function() changeGameState("quit") end
     }
     self.buttons = {
         -- Quit Button (color not set)
         Button(self.funcs.startNewGame, "Start Game", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.6),
-        Button(nil, "Settings", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.72),
+        Button(self.funcs.settings, "Settings", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.72),
         Button(self.funcs.quitGame, "Quit Game", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.84)
     }
 end

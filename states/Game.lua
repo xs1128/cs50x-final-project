@@ -19,6 +19,7 @@ function Game:load()
 
     self.funcs = { 
         backToGame = function() changeGameState("running") end,
+        settings = function() changeGameState("setting") end,
         backToMenu = function() 
             Map:clean()
             -- Reload Map entities and Player
@@ -31,7 +32,7 @@ function Game:load()
 
     self.pausedButtons = {
         Button(self.funcs.backToGame, "Back to Game", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.5),
-        Button(nil, "Settings", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.62),
+        Button(self.funcs.settings, "Settings", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.62),
         Button(self.funcs.backToMenu, "Back to Menu", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.74)
     }
 

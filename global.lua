@@ -12,6 +12,8 @@ function Global:load()
     hurtSFX = love.audio.newSource("assets/sfx/hurt.wav", "static")
     -- Initialize mouse x, y position
     mouse_x, mouse_y = 0, 0
+    previousState = "menu"
+    currentState = "menu"
 end
 
 return Global

@@ -5,13 +5,8 @@ local Quit = {}
 
 function Quit:load()
     self.funcs = {
-        backToMenu = function()
-            changeGameState("menu")
-        end,
-
-        quitGame = function()
-            love.event.quit()
-        end
+        backToMenu = function() changeGameState("menu") end,
+        quitGame = function() love.event.quit() end
     }
     self.buttons = {
         -- Quit Button (color not set)

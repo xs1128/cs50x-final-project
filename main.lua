@@ -2,6 +2,7 @@ local love = require "love"
 local Global = require "global"
 local Menu = require "states.Menu"
 local Game = require "states.Game"
+local Setting = require "states.Setting"
 local End = require "states.End"
 local Quit = require "states.Quit"
 local Background = require "components.Background"
@@ -14,6 +15,7 @@ function love.load()
     Background:load()
     Game:load()
     Menu:load()
+    Setting:load()
     End:load()
     Quit:load()
 end
@@ -33,6 +35,9 @@ function  love.update(dt)
     elseif Game.state.paused then
         Game:runButtonFunction(mouseClick)
         mouseClick = false
+    elseif Game.state.setting then
+        Setting:runButtonFunction(mouseClick)
+        mouseClick = false
     elseif Game.state.ended then
         End:runButtonFunction(mouseClick)
         mouseClick = false
@@ -40,6 +45,7 @@ function  love.update(dt)
         Quit:runButtonFunction(mouseClick)
         mouseClick = false
     end
+
 end
 
 function love.draw()
@@ -50,6 +56,8 @@ function love.draw()
     elseif Game.state.running or Game.state.paused then
         Background:draw("running")        
         Game:draw(Game.state.paused)
+    elseif Game.state.setting then
+        Setting:draw()
     elseif Game.state.ended then
         End:draw()
     elseif Game.state.quit then
@@ -90,9 +98,12 @@ end
 
 -- Global function to change game state
 function changeGameState(state)
+    previousState = currentState
+    currentState = state
     Game.state.menu = state == 'menu'
     Game.state.running = state == 'running'
     Game.state.paused = state == 'paused'
+    Game.state.setting = state == 'setting'
     Game.state.ended = state == 'ended'
     Game.state.quit = state == 'quit'
 end
