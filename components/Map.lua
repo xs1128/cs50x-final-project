@@ -58,7 +58,7 @@ function Map:update(dt)
     if Player.dead then
         self:clean()
         -- Reload Map entities and Player
-        Map:load()
+        self:load()
         Player:load()
 
         Player.dead = false

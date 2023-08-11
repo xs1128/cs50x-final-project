@@ -34,6 +34,9 @@ function  love.update(dt)
         Game:update(dt)
         Background:update(dt, Game.state.paused)
         World:update(dt)
+    elseif Game.state.paused then
+        Game:runButtonFunction(mouseClick)
+        mouseClick = false
     elseif Game.state.quit then
         Quit:runButtonFunction(mouseClick)
         mouseClick = false
@@ -66,7 +69,7 @@ end
 -- Detect anytime mouse is pressed
 function love.mousepressed(x, y, button, istouch, presses)
     if button == 1 then
-        if Game.state.menu or Game.state.quit then
+        if Game.state.menu or Game.state.paused or Game.state.quit then
             mouseClick = true
         end
     end

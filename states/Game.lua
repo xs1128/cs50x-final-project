@@ -1,4 +1,5 @@
 local Text = require "components.Text"
+local Button = require "components.Button"
 local Map = require "components.Map"
 local Player = require "objects.Player"
 local Camera = require "components.Camera"
@@ -12,7 +13,26 @@ function Game:load()
         menu = true,
         running = false,
         paused = false,
-        ended = false
+        ended = false,
+        quit = false
+    }
+
+    self.funcs = { 
+        backToGame = function() changeGameState("running") end,
+        backToMenu = function() 
+            Map:clean()
+            -- Reload Map entities and Player
+            Map:load()
+            Player:load()
+
+            changeGameState("menu") 
+        end
+    }
+
+    self.pausedButtons = {
+        Button(self.funcs.backToGame, "Back to Game", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.5),
+        Button(nil, "Settings", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.62),
+        Button(self.funcs.backToMenu, "Back to Menu", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.74)
     }
 
     Map:load()
@@ -24,8 +44,14 @@ function Game:update(dt)
     Map:update(dt)
     Player:update(dt)
     Coin:updateAll(dt)
-    if self.state.menu then
-        Map:update(dt)
+end
+
+function Game:runButtonFunction(clicked)
+    for name, button in pairs(self.pausedButtons) do
+        if button:checkHover(mouse_x, mouse_y) and clicked then
+            love.audio.play(buttonClickSound)
+            button:click()
+        end
     end
 end
 
@@ -41,8 +67,12 @@ function Game:draw(faded)
     if faded then
         love.graphics.setColor(0, 0, 0, 0.5)
         love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
-        love.graphics.setColor(1, 1, 1)
+        love.graphics.setColor(1, 1, 1, 1)
         Text("Game Paused", 0, love.graphics.getHeight() * 0.3, love.graphics.getWidth(), "center", 1):draw()
+
+        for _, button in pairs(self.pausedButtons) do
+            button:draw()
+        end 
     end
 end
 
