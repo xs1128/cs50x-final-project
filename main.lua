@@ -1,24 +1,20 @@
 local love = require "love"
+local Global = require "global"
 local Menu = require "states.Menu"
 local Game = require "states.Game"
+local End = require "states.End"
 local Quit = require "states.Quit"
 local Background = require "components.Background"
 
 function love.load()
-    -- Import center_ptr cursor from http://www.rw-designer.com/cursor-set/comix
-    cursor = love.mouse.newCursor("assets/images/cursor.png")
-    -- Import new font from https://tinyworlds.itch.io/free-pixel-font-thaleah
-    mainFont = love.graphics.newFont("assets/fonts/ThaleahFat.ttf", 50)
-    buttonClickSound = love.audio.newSource("assets/sfx/click.wav", "static")
-    hurtSFX = love.audio.newSource("assets/sfx/hurt.wav", "static")
+    Global:load()
     -- Prevent blurring 
     love.graphics.setDefaultFilter("nearest")
-    -- Initialize mouse x, y position
-    mouse_x, mouse_y = 0, 0
-
+    
     Background:load()
     Game:load()
     Menu:load()
+    End:load()
     Quit:load()
 end
 
@@ -37,6 +33,9 @@ function  love.update(dt)
     elseif Game.state.paused then
         Game:runButtonFunction(mouseClick)
         mouseClick = false
+    elseif Game.state.ended then
+        End:runButtonFunction(mouseClick)
+        mouseClick = false
     elseif Game.state.quit then
         Quit:runButtonFunction(mouseClick)
         mouseClick = false
@@ -51,6 +50,8 @@ function love.draw()
     elseif Game.state.running or Game.state.paused then
         Background:draw("running")        
         Game:draw(Game.state.paused)
+    elseif Game.state.ended then
+        End:draw()
     elseif Game.state.quit then
         Quit:draw()
     end
@@ -69,7 +70,7 @@ end
 -- Detect anytime mouse is pressed
 function love.mousepressed(x, y, button, istouch, presses)
     if button == 1 then
-        if Game.state.menu or Game.state.paused or Game.state.quit then
+        if not Game.state.running then
             mouseClick = true
         end
     end
@@ -87,7 +88,7 @@ function love.keypressed(key, scancode, isrepeat)
     end
 end
 
---global function
+-- Global function to change game state
 function changeGameState(state)
     Game.state.menu = state == 'menu'
     Game.state.running = state == 'running'

@@ -36,7 +36,7 @@ function Map:nextLevel()
     if self.currentLevel + 1 > self.lastLevel then
         -- destroy world change to congrats page
         self.currentLevel = 1
-        changeGameState("menu")
+        changeGameState("ended")
     else
         self.currentLevel = self.currentLevel + 1
     end
