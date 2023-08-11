@@ -4,6 +4,7 @@ local STI = require "lib.sti"
 local Player = require "objects.Player"
 local Coin = require "objects.Coin"
 local Obstacle = require "objects.Obstacle"
+local End = require "states.End"
 
 local Map = {}
 
@@ -36,6 +37,7 @@ function Map:nextLevel()
     if self.currentLevel + 1 > self.lastLevel then
         -- destroy world change to congrats page
         self.currentLevel = 1
+        End.text = "Congratz"
         changeGameState("ended")
     else
         self.currentLevel = self.currentLevel + 1
@@ -62,7 +64,9 @@ function Map:update(dt)
         Player:load()
 
         Player.dead = false
-        changeGameState("menu")
+        End.text = "Too Bad!"
+        changeGameState("ended")
+        
     end
 end
 

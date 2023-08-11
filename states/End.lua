@@ -4,13 +4,15 @@ local Text = require "components.Text"
 local End = {}
 
 function End:load()
+    self.text = "404"
     self.funcs = {
-        backToMenu = function() changeGameState("menu") end
+        backToMenu = function() changeGameState("menu") end,
+        re = function() changeGameState("running") end
     }
     self.buttons = {
-        Button(self.funcs.backToMenu, "Back To Menu", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.72),
+        Button(self.funcs.re, "Retry Game", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.6),
+        Button(self.funcs.backToMenu, "Back To Menu", "center", nil, nil, love.graphics.getWidth() / 3, 50, nil, love.graphics.getWidth() / 3, love.graphics.getHeight() * 0.72)
     }    
-
 end
 
 function End:update(dt)
@@ -33,7 +35,7 @@ end
 
 function End:draw()
     love.graphics.setFont(largeFont)
-    Text("Congratulation on Passing through the Game!", 0, love.graphics.getHeight() * 0.3, love.graphics.getWidth(), "center", 1):draw()
+    Text(self.text, 0, love.graphics.getHeight() * 0.3, love.graphics.getWidth(), "center", 1):draw()
     love.graphics.setFont(mainFont)
 
     for _, button in pairs(self.buttons) do

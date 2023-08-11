@@ -3,7 +3,7 @@ local Player = {}
 function Player:load()
     -- Player dimension and position
     self.x = 100
-    self.y = -100
+    self.y = -50
     self.startX = self.x
     self.startY = self.y
     self.width = 20
