@@ -1,5 +1,4 @@
--- rmb cite the tileset https://free-game-assets.itch.io/free-swamp-2d-tileset-pixel-art
-
+--Tileset : https://free-game-assets.itch.io/free-swamp-2d-tileset-pixel-art
 local STI = require "lib.sti"
 local Player = require "objects.Player"
 local Coin = require "objects.Coin"
@@ -9,9 +8,11 @@ local End = require "states.End"
 local Map = {}
 
 function Map:load()
+    -- Set levels
     self.currentLevel = 1
     self.lastLevel = 3
 
+    -- Setup world physics
     World = love.physics.newWorld(0, 2000)
     World:setCallbacks(beginContact, endContact)
 
@@ -19,6 +20,7 @@ function Map:load()
 end
 
 function Map:init()
+    -- sti implementations and details
     self.level = STI("map/"..self.currentLevel..".lua", {"box2d"})
     self.level:box2d_init(World)
     self.solidLayer = self.level.layers.solid
@@ -33,11 +35,12 @@ function Map:init()
 end
 
 function Map:nextLevel()
+    -- Change to next level and clean previous level
     self:clean()
     if self.currentLevel + 1 > self.lastLevel then
         -- destroy world change to congrats page
         self.currentLevel = 1
-        End.text = "Congratz"
+        End.text = "Congratulations!"
         changeGameState("ended")
     else
         self.currentLevel = self.currentLevel + 1
@@ -54,6 +57,7 @@ function Map:clean()
 end
 
 function Map:update(dt)
+    -- Detect range where player touches and level is incremented
     if Player.x > MapWidth - 64 then
         self:nextLevel()
     end
@@ -66,11 +70,11 @@ function Map:update(dt)
         Player.dead = false
         End.text = "Too Bad!"
         changeGameState("ended")
-        
     end
 end
 
 function Map:spawnEntities()
+    -- Set every entities from sti map design
     for _, i in pairs(self.entityLayer.objects) do
         if i.type == "trap" then
             Obstacle:new(i.x + i.width / 2, i.y + i.height / 2)

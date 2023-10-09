@@ -9,11 +9,13 @@ function Background:load()
 end
 
 function Background:loadAssets()
+    -- Backgound image path in folder
     self.cloud = love.graphics.newImage("assets/images/2015-02-26 [DB32](Generic Platformer)(Clouds).png")
     self.mountain = love.graphics.newImage("assets/images/2015-02-26 [DB32](Generic Platformer)(Mountains).png")
 end
 
 function Background:update(dt, paused)
+    -- Update cloud position for moving animation
     self:movingCloud(dt, paused)
 end
 
@@ -27,8 +29,8 @@ function Background:movingCloud(dt, paused)
 end
 
 function Background:draw(state)
+    -- Draw background following the levels
     if state == "menu" then
-        -- make function that fllow user region time
         self:drawImage()
     elseif state == "running" then
         if Map.currentLevel == 1 then
@@ -49,6 +51,7 @@ function Background:drawImage()
 end
 
 function Background:tintColor(time)
+    -- Tint orange for evening colors
     if time == "evening0" then
         love.graphics.setColor(0.96, 0.5, 0.19, 0.1)
         love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())

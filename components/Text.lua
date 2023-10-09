@@ -1,4 +1,5 @@
 function Text(text, x, y, wrap_width, text_align, opacity)
+    -- Set text properties and default if null
     wrap_width = wrap_width or love.graphics.getWidth()
     text_align = text_align or "left"
     opacity = opacity or 1
@@ -8,6 +9,7 @@ function Text(text, x, y, wrap_width, text_align, opacity)
         x = x, 
         y = y, 
 
+        -- Draw text
         draw = function(self)
             love.graphics.printf(self.text, self.x, self.y, wrap_width, text_align)
             love.graphics.setColor(1, 1, 1, 1)

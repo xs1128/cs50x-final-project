@@ -1,7 +1,9 @@
 local Text = require "components.Text"
 
+-- Get every properties for button
 function Button(func, text, text_align, text_x, text_y, width, height, button_color, btn_x, btn_y)
     local btn_text = {}
+    -- For debugging
     func = func or function() print("Non-Functional Button") end
 
     -- Set text position relative to button
@@ -15,6 +17,7 @@ function Button(func, text, text_align, text_x, text_y, width, height, button_co
     end
 
     return {
+        -- Set properties and their default if is null
         text = text or "No Text",
         text_x = text_x or btn_x or 0,
         text_y = text_y or btn_y or 0,
@@ -29,6 +32,7 @@ function Button(func, text, text_align, text_x, text_y, width, height, button_co
             self.button_color = {r = red, g = green, b = blue}
         end,
 
+        -- Function to check if mouse hovering on button to change color for some buttons
         checkHover = function(self, mouse_x, mouse_y)
             if (mouse_x >= self.btn_x) and (mouse_x <= self.btn_x + self.width) then
                 if (mouse_y >= self.btn_y) and (mouse_y <= self.btn_y + self.height) then
@@ -38,6 +42,7 @@ function Button(func, text, text_align, text_x, text_y, width, height, button_co
             return false
         end,
 
+        -- Execute function attached to the button triggered
         click = function(self)
             func()
         end,
