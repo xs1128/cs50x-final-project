@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="81">
+ <editorsettings>
+  <export target="../3.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" tilecount="60" columns="10">
+  <image source="../../assets/images/Tileset1.png" width="320" height="192"/>
+ </tileset>
+ <layer id="1" name="ground" width="100" height="20">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
+12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
+12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
+12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
+12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
+12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
+12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12
+</data>
+ </layer>
+ <objectgroup id="2" name="solid">
+  <object id="1" x="0" y="416" width="3200" height="224">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="2" x="-32" y="0" width="32" height="448">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="3" x="3200" y="0" width="32" height="448">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ffff00" id="3" name="entity">
+  <object id="4" name="Coin" type="coin" x="295.33" y="240">
+   <ellipse/>
+  </object>
+  <object id="5" name="Coin" type="coin" x="327.33" y="208">
+   <ellipse/>
+  </object>
+  <object id="6" name="Coin" type="coin" x="391.33" y="176">
+   <ellipse/>
+  </object>
+  <object id="7" name="Coin" type="coin" x="455.33" y="176">
+   <ellipse/>
+  </object>
+  <object id="8" name="Coin" type="coin" x="295.33" y="272">
+   <ellipse/>
+  </object>
+  <object id="9" name="Coin" type="coin" x="327.33" y="304">
+   <ellipse/>
+  </object>
+  <object id="10" name="Coin" type="coin" x="327.33" y="368">
+   <ellipse/>
+  </object>
+  <object id="11" name="Coin" type="coin" x="391.33" y="368">
+   <ellipse/>
+  </object>
+  <object id="12" name="Coin" type="coin" x="423.33" y="368">
+   <ellipse/>
+  </object>
+  <object id="13" name="Coin" type="coin" x="455.33" y="368">
+   <ellipse/>
+  </object>
+  <object id="14" name="Coin" type="coin" x="487.33" y="336">
+   <ellipse/>
+  </object>
+  <object id="15" name="Coin" type="coin" x="743.33" y="144">
+   <ellipse/>
+  </object>
+  <object id="16" name="Coin" type="coin" x="679.33" y="144">
+   <ellipse/>
+  </object>
+  <object id="17" name="Coin" type="coin" x="615.33" y="176">
+   <ellipse/>
+  </object>
+  <object id="18" name="Coin" type="coin" x="615.33" y="208">
+   <ellipse/>
+  </object>
+  <object id="19" name="Coin" type="coin" x="615.33" y="240">
+   <ellipse/>
+  </object>
+  <object id="20" name="Coin" type="coin" x="647.33" y="240">
+   <ellipse/>
+  </object>
+  <object id="21" name="Coin" type="coin" x="711.33" y="272">
+   <ellipse/>
+  </object>
+  <object id="22" name="Coin" type="coin" x="775.33" y="304">
+   <ellipse/>
+  </object>
+  <object id="23" name="Coin" type="coin" x="775.33" y="336">
+   <ellipse/>
+  </object>
+  <object id="24" name="Coin" type="coin" x="711.33" y="400">
+   <ellipse/>
+  </object>
+  <object id="25" name="Coin" type="coin" x="679.33" y="400">
+   <ellipse/>
+  </object>
+  <object id="26" name="Coin" type="coin" x="583.33" y="336">
+   <ellipse/>
+  </object>
+  <object id="27" name="Coin" type="coin" x="903.33" y="112">
+   <ellipse/>
+  </object>
+  <object id="28" name="Coin" type="coin" x="935.33" y="112">
+   <ellipse/>
+  </object>
+  <object id="29" name="Coin" type="coin" x="967.33" y="112">
+   <ellipse/>
+  </object>
+  <object id="30" name="Coin" type="coin" x="1031.33" y="112">
+   <ellipse/>
+  </object>
+  <object id="31" name="Coin" type="coin" x="1063.33" y="112">
+   <ellipse/>
+  </object>
+  <object id="32" name="Coin" type="coin" x="903.33" y="144">
+   <ellipse/>
+  </object>
+  <object id="33" name="Coin" type="coin" x="903.33" y="176">
+   <ellipse/>
+  </object>
+  <object id="34" name="Coin" type="coin" x="903.33" y="208">
+   <ellipse/>
+  </object>
+  <object id="35" name="Coin" type="coin" x="903.33" y="240">
+   <ellipse/>
+  </object>
+  <object id="36" name="Coin" type="coin" x="967.33" y="240">
+   <ellipse/>
+  </object>
+  <object id="37" name="Coin" type="coin" x="1063.33" y="272">
+   <ellipse/>
+  </object>
+  <object id="38" name="Coin" type="coin" x="1063.33" y="272">
+   <ellipse/>
+  </object>
+  <object id="39" name="Coin" type="coin" x="1063.33" y="336">
+   <ellipse/>
+  </object>
+  <object id="40" name="Coin" type="coin" x="1031.33" y="368">
+   <ellipse/>
+  </object>
+  <object id="41" name="Coin" type="coin" x="999.33" y="368">
+   <ellipse/>
+  </object>
+  <object id="42" name="Coin" type="coin" x="967.33" y="368">
+   <ellipse/>
+  </object>
+  <object id="43" name="Coin" type="coin" x="903.33" y="368">
+   <ellipse/>
+  </object>
+  <object id="44" name="Coin" type="coin" x="871.33" y="336">
+   <ellipse/>
+  </object>
+  <object id="45" name="Coin" type="coin" x="1031.33" y="240">
+   <ellipse/>
+  </object>
+  <object id="46" name="Coin" type="coin" x="1287.33" y="368">
+   <ellipse/>
+  </object>
+  <object id="47" name="Coin" type="coin" x="1255.33" y="336">
+   <ellipse/>
+  </object>
+  <object id="48" name="Coin" type="coin" x="1223.33" y="336">
+   <ellipse/>
+  </object>
+  <object id="49" name="Coin" type="coin" x="1191.33" y="304">
+   <ellipse/>
+  </object>
+  <object id="50" name="Coin" type="coin" x="1159.33" y="240">
+   <ellipse/>
+  </object>
+  <object id="51" name="Coin" type="coin" x="1159.33" y="208">
+   <ellipse/>
+  </object>
+  <object id="52" name="Coin" type="coin" x="1191.33" y="176">
+   <ellipse/>
+  </object>
+  <object id="53" name="Coin" type="coin" x="1223.33" y="112">
+   <ellipse/>
+  </object>
+  <object id="54" name="Coin" type="coin" x="1223.33" y="80">
+   <ellipse/>
+  </object>
+  <object id="55" name="Coin" type="coin" x="1255.33" y="80">
+   <ellipse/>
+  </object>
+  <object id="56" name="Coin" type="coin" x="1351.33" y="80">
+   <ellipse/>
+  </object>
+  <object id="57" name="Coin" type="coin" x="1383.33" y="80">
+   <ellipse/>
+  </object>
+  <object id="58" name="Coin" type="coin" x="1383.33" y="112">
+   <ellipse/>
+  </object>
+  <object id="59" name="Coin" type="coin" x="1415.33" y="176">
+   <ellipse/>
+  </object>
+  <object id="60" name="Coin" type="coin" x="1415.33" y="208">
+   <ellipse/>
+  </object>
+  <object id="61" name="Coin" type="coin" x="1415.33" y="272">
+   <ellipse/>
+  </object>
+  <object id="62" name="Coin" type="coin" x="1383.33" y="304">
+   <ellipse/>
+  </object>
+  <object id="63" name="Coin" type="coin" x="1383.33" y="336">
+   <ellipse/>
+  </object>
+  <object id="64" name="Coin" type="coin" x="1351.33" y="368">
+   <ellipse/>
+  </object>
+  <object id="65" name="Coin" type="coin" x="1319.33" y="368">
+   <ellipse/>
+  </object>
+  <object id="66" name="Coin" type="coin" x="2759.33" y="336">
+   <ellipse/>
+  </object>
+  <object id="67" name="Coin" type="coin" x="2663.33" y="304">
+   <ellipse/>
+  </object>
+  <object id="68" name="Coin" type="coin" x="2567.33" y="240">
+   <ellipse/>
+  </object>
+  <object id="69" name="Coin" type="coin" x="2535.33" y="208">
+   <ellipse/>
+  </object>
+  <object id="70" name="Coin" type="coin" x="2567.33" y="112">
+   <ellipse/>
+  </object>
+  <object id="71" name="Coin" type="coin" x="2695.33" y="80">
+   <ellipse/>
+  </object>
+  <object id="72" name="Coin" type="coin" x="2759.33" y="112">
+   <ellipse/>
+  </object>
+  <object id="73" name="Coin" type="coin" x="2791.33" y="144">
+   <ellipse/>
+  </object>
+  <object id="74" name="Coin" type="coin" x="2791.33" y="144">
+   <ellipse/>
+  </object>
+  <object id="75" name="Coin" type="coin" x="2887.33" y="80">
+   <ellipse/>
+  </object>
+  <object id="76" name="Coin" type="coin" x="2951.33" y="80">
+   <ellipse/>
+  </object>
+  <object id="77" name="Coin" type="coin" x="2983.33" y="176">
+   <ellipse/>
+  </object>
+  <object id="78" name="Coin" type="coin" x="2919.33" y="272">
+   <ellipse/>
+  </object>
+  <object id="79" name="Coin" type="coin" x="2887.33" y="336">
+   <ellipse/>
+  </object>
+  <object id="80" name="Coin" type="coin" x="2823.33" y="368">
+   <ellipse/>
+  </object>
+ </objectgroup>
+</map>

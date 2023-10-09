@@ -4,17 +4,9 @@ local Text = require "components.Text"
 local Quit = {}
 
 function Quit:load()
-    self.fontFilePath = "assets/fonts/ThaleahFat.ttf"
-    self.mainFont = love.graphics.newFont(self.fontFilePath, 50)
-    self.largeFont = love.graphics.newFont(self.fontFilePath, 65)
     self.funcs = {
-        backToMenu = function()
-            changeGameState("menu")
-        end,
-
-        quitGame = function()
-            love.event.quit()
-        end
+        backToMenu = function() changeGameState("menu") end,
+        quitGame = function() love.event.quit() end
     }
     self.buttons = {
         -- Quit Button (color not set)
@@ -43,9 +35,9 @@ function Quit:runButtonFunction(clicked)
 end
 
 function Quit:draw()
-    love.graphics.setFont(self.largeFont)
+    love.graphics.setFont(largeFont)
     Text("Are You Sure To Quit The Game?", 0, love.graphics.getHeight() * 0.3, love.graphics.getWidth(), "center", 1):draw()
-    love.graphics.setFont(self.mainFont)
+    love.graphics.setFont(mainFont)
 
     for _, button in pairs(self.buttons) do
         button:draw()

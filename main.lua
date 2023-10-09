@@ -1,26 +1,23 @@
 local love = require "love"
+local Global = require "global"
 local Menu = require "states.Menu"
 local Game = require "states.Game"
+local Setting = require "states.Setting"
+local End = require "states.End"
 local Quit = require "states.Quit"
 local Background = require "components.Background"
-local Player = require "objects.Player"
-local Map = require "components.Map"
 
 function love.load()
-    -- Import center_ptr cursor from http://www.rw-designer.com/cursor-set/comix
-    cursor = love.mouse.newCursor("assets/images/cursor.png")
-    -- Import new font from https://tinyworlds.itch.io/free-pixel-font-thaleah
-    mainFont = love.graphics.newFont("assets/fonts/ThaleahFat.ttf", 50)
-    buttonClickSound = love.audio.newSource("assets/sfx/click.wav", "static")
+    Global:load()
     -- Prevent blurring 
     love.graphics.setDefaultFilter("nearest")
-    -- Initialize mouse x, y position
-    mouse_x, mouse_y = 0, 0
-
+    
     Background:load()
     Game:load()
     Menu:load()
-    Quit:load()    
+    Setting:load()
+    End:load()
+    Quit:load()
 end
 
 function  love.update(dt)
@@ -35,10 +32,20 @@ function  love.update(dt)
         Game:update(dt)
         Background:update(dt, Game.state.paused)
         World:update(dt)
+    elseif Game.state.paused then
+        Game:runButtonFunction(mouseClick)
+        mouseClick = false
+    elseif Game.state.setting then
+        Setting:runButtonFunction(mouseClick)
+        mouseClick = false
+    elseif Game.state.ended then
+        End:runButtonFunction(mouseClick)
+        mouseClick = false
     elseif Game.state.quit then
         Quit:runButtonFunction(mouseClick)
         mouseClick = false
     end
+
 end
 
 function love.draw()
@@ -47,34 +54,31 @@ function love.draw()
         Background:draw("menu")
         Menu:draw()
     elseif Game.state.running or Game.state.paused then
-        Background:draw("running")
+        Background:draw("running")        
         Game:draw(Game.state.paused)
+    elseif Game.state.setting then
+        Setting:draw()
+    elseif Game.state.ended then
+        End:draw()
     elseif Game.state.quit then
         Quit:draw()
     end
     
     -- Show cursor if game is not running
     if not Game.state.running then
+        love.mouse.setVisible(true)
         love.mouse.setCursor(cursor)
+    else
+        love.mouse.setVisible(false)
     end
     -- Display real time user FPS
     --love.graphics.print("FPS: "..love.timer.getFPS(), love.graphics.getWidth() * 0.9, love.graphics.getHeight() * 0.95)
 end
 
-function beginContact(a, b, collision)
-    --if Coin:beginContact(a, b, collision) then return end
-    --if Obstacle:beginContact(a, b, collision) then return end
-    Player:beginContact(a, b, collision)
-end
-
-function endContact(a, b, collision)
-    Player:endContact(a, b, collision)
-end
-
 -- Detect anytime mouse is pressed
 function love.mousepressed(x, y, button, istouch, presses)
     if button == 1 then
-        if Game.state.menu or Game.state.quit then
+        if not Game.state.running then
             mouseClick = true
         end
     end
@@ -82,21 +86,25 @@ end
 
 function love.keypressed(key, scancode, isrepeat)
     if Game.state.running then
-        -- Implement paused function
-        if key == "escape" then changeGameState("paused") end
-        Player:jump(key) 
+        Game:keypress(key) 
+        -- Implement pause function
+        if key == "p" or key == "escape" then changeGameState("paused") end
+        
     elseif Game.state.paused then
         -- Return to game
-        if key == "escape" then changeGameState("running") end     
+        if key == "p" or key == "escape" then changeGameState("running") end     
     end
 end
 
---global function
-    function changeGameState(state)
-        Game.state.menu = state == 'menu'
-        Game.state.running = state == 'running'
-        Game.state.paused = state == 'paused'
-        Game.state.ended = state == 'ended'
-        Game.state.quit = state == 'quit'
-    end
+-- Global function to change game state
+function changeGameState(state)
+    previousState = currentState
+    currentState = state
+    Game.state.menu = state == 'menu'
+    Game.state.running = state == 'running'
+    Game.state.paused = state == 'paused'
+    Game.state.setting = state == 'setting'
+    Game.state.ended = state == 'ended'
+    Game.state.quit = state == 'quit'
+end
     
