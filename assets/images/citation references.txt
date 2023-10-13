@@ -1,0 +1,14 @@
+CRAFTPIX.NET, Tileset Pixel Art, 23 March, 2020, accessed on 9 August, 2023, <https://free-game-assets.itch.io/free-swamp-2d-tileset-pixel-art>
+(Coin.png edited for GUI player coin indicator)
+(Tileset.png, Tileset1.png are original and copy of it with different contrast)
+
+RealWorld Graphics, Cursor Set, Comix Cursors, center_ptr, 16 October, 2007, accessed on 26 June, 2003, <http://www.rw-designer.com/cursor-set/comix>
+(Changed into .png format from .cur)
+
+OPEN GAME ART.ORG, 2D Art, etqws3, 26 February, 2015, accessed on 26 June, 2023, <https://opengameart.org/content/generic-platformer-tileset-16x16-background>
+
+OPEN GAME ART.ORG, 2D Art, GrafxKid, 18 February, 2015, accessed on 4 June, 2023, <https://opengameart.org/content/classic-hero>
+
+OPEN GAME ART.ORG, 2D Art, kungfu4000, 23 June, 2015, accessed on 13 July, 2023, <https://opengameart.org/content/spikes-32x32>
+
+I drew "Heart.png" myself using paint.net

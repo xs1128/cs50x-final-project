@@ -20,6 +20,7 @@ function Background:update(dt, paused)
 end
 
 function Background:movingCloud(dt, paused)
+    -- Set cloud moving speed
     if not paused then
         self.cloudX = self.cloudX + dt * self.cloudSpeed
         if self.cloudX < - love.graphics.getWidth() then

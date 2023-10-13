@@ -1,13 +1,14 @@
 Global = {}
 
 function Global:load()
-    -- Import center_ptr cursor from http://www.rw-designer.com/cursor-set/comix
+
+    -- Set local and global variables for assets (cursor, font, font size)
     cursor = love.mouse.newCursor("assets/images/cursor.png")
-    -- Import new font from https://tinyworlds.itch.io/free-pixel-font-thaleah
     local fontFilePath = "assets/fonts/ThaleahFat.ttf"
     mainFont = love.graphics.newFont(fontFilePath, 50)
     largeFont = love.graphics.newFont(fontFilePath, 65)
     
+    -- Audio table for assets and variables
     audio = {}
     audio.buttonClickSound = love.audio.newSource("assets/sfx/click.wav", "static")
     audio.hurtSFX = love.audio.newSource("assets/sfx/hurt.wav", "static")

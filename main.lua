@@ -12,6 +12,8 @@ function love.load()
     Global:load()
     -- Prevent blurring 
     love.graphics.setDefaultFilter("nearest", "nearest")
+
+    -- Set default volume settings
     audio.bgm:setVolume(audio.defVol)
     audio.buttonClickSound:setVolume(audio.defVol)
     audio.hurtSFX:setVolume(audio.defVol)
@@ -106,9 +108,10 @@ end
 
 -- Global function to change game state
 function changeGameState(state)
+    -- Keep track of coming from which state
     previousState = currentState
     currentState = state
-    -- Keep track of coming from which state
+    
     Game.state.menu = state == 'menu'
     Game.state.running = state == 'running'
     Game.state.paused = state == 'paused'

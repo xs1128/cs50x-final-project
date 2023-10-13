@@ -1,5 +1,3 @@
--- cite https://1juancarlos.itch.io/simple-2d-pixel-art-wooden-spikes
-
 local Obstacle = {image = love.graphics.newImage("assets/images/spike.png")}
 local Player = require "objects.Player"
 Obstacle.__index = Obstacle

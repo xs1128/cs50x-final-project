@@ -1,4 +1,3 @@
---Tileset : https://free-game-assets.itch.io/free-swamp-2d-tileset-pixel-art
 local STI = require "lib.sti"
 local Player = require "objects.Player"
 local Coin = require "objects.Coin"
@@ -10,7 +9,7 @@ local Map = {}
 function Map:load()
     -- Set levels
     self.currentLevel = 1
-    self.lastLevel = 1
+    self.lastLevel = 3
 
     -- Setup world physics
     World = love.physics.newWorld(0, 2000)
@@ -65,7 +64,6 @@ function Map:clean()
 end
 
 function Map:update(dt)
-    --print(#activeObstacle, #activeCoins)
     -- Detect range where player touches and level is incremented
     if Player.x > MapWidth - 64 then
         self:nextLevel()
