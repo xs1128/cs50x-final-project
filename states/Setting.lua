@@ -7,6 +7,11 @@ local Setting = {}
 
 function Setting:load()
 
+    -- Initialize mute and fps display variables
+    self.bgmMute = ""
+    self.sfxMute = ""
+    self.fpsShow = ""
+
     -- Insert sliders in sliders table
     self.volSlider = {
         bgmVolSlider = newSlider(love.graphics.getWidth() * 0.5, love.graphics.getHeight() * 0.425, 200, audio.defVol, 0, 1, function (v) if not audio.muteStatebgm then audio.bgm:setVolume(v) end 
@@ -67,6 +72,21 @@ function Setting:update(dt)
         slider:update()
     end
 
+    -- Update both mute states for display purpose
+    if audio.muteStatebgm then
+        self.bgmMute = "0"
+    elseif not audio.muteStatebgm then
+        self.bgmMute = "1"
+    end
+
+    if audio.muteStatesfx then
+        self.sfxMute = "0"
+    elseif not audio.muteStatesfx then
+        self.sfxMute = "1"
+    end
+
+    -- Update FPS display states.Quit
+    if fpsShow then self.fpsShow = "1" else self.fpsShow = "0" end
 end
 
 function Setting:runButtonFunction(clicked)
@@ -96,6 +116,11 @@ function Setting:draw()
     for _, button in pairs(self.settingButtons) do
         button:draw()
     end
+
+    -- Print on/off for each functions
+    love.graphics.print(self.bgmMute, love.graphics.getWidth() * 0.307, love.graphics.getHeight() * 0.395, 0, 0.8)
+    love.graphics.print(self.sfxMute, love.graphics.getWidth() * 0.307, love.graphics.getHeight() * 0.595, 0, 0.8)
+    love.graphics.print(self.fpsShow, love.graphics.getWidth() * 0.307, love.graphics.getHeight() * 0.795, 0, 0.8)
 
     love.graphics.print("BGM VOLUME: "..audio.volBgm .."%", love.graphics.getWidth() * 0.36, love.graphics.getHeight() * 0.3, 0, 0.8)
     love.graphics.print("SFX VOLUME: "..audio.volSfx .."%", love.graphics.getWidth() * 0.36, love.graphics.getHeight() * 0.5, 0, 0.8)

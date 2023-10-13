@@ -4,7 +4,8 @@ local Text = require "components.Text"
 local End = {}
 
 function End:load()
-    self.text = "lol"
+    self.text = "404"
+    self.coins = 0
     self.funcs = {
         backToMenu = function() changeGameState("menu") end,
         retry = function() changeGameState("running") end
@@ -35,6 +36,13 @@ function End:draw()
     love.graphics.setFont(largeFont)
     Text(self.text, 0, love.graphics.getHeight() * 0.3, love.graphics.getWidth(), "center", 1):draw()
     love.graphics.setFont(mainFont)
+    Text("Coins: "..self.coins.. " / 131", 0, love.graphics.getHeight() * 0.5, love.graphics.getWidth(), "center", 1):draw()
+
+    if self.coins <= 30 then
+        love.graphics.printf("Seems like you've been dodging the coins", love.graphics.getWidth() / 4, love.graphics.getHeight() * 0.4, love.graphics.getWidth(), "center", 0, 0.5)
+    elseif self.coins == 131 then
+        love.graphics.printf("All coins obtained", love.graphics.getWidth() / 4, love.graphics.getHeight() * 0.4, love.graphics.getWidth(), "center", 0, 0.5)
+    end
 
     -- Draw all buttons
     for _, button in pairs(self.buttons) do

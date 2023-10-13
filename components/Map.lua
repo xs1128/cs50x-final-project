@@ -10,7 +10,7 @@ local Map = {}
 function Map:load()
     -- Set levels
     self.currentLevel = 1
-    self.lastLevel = 3
+    self.lastLevel = 1
 
     -- Setup world physics
     World = love.physics.newWorld(0, 2000)
@@ -35,16 +35,24 @@ function Map:init()
 end
 
 function Map:nextLevel()
-    -- Change to next level and clean previous level
-    self:clean()
     if self.currentLevel + 1 > self.lastLevel then
         -- destroy world change to congrats page
         self.currentLevel = 1
         End.text = "Congratulations!"
+        End.coins = Player.coins
+
+        -- Reload Map entities and Player
+        self:load()
+        Player:load()
+
+        Player.dead = false
         changeGameState("ended")
     else
         self.currentLevel = self.currentLevel + 1
     end
+
+    -- Change to next level and clean previous level
+    self:clean()
     
     self:init()
     Player:resetPosition()
@@ -57,18 +65,20 @@ function Map:clean()
 end
 
 function Map:update(dt)
+    --print(#activeObstacle, #activeCoins)
     -- Detect range where player touches and level is incremented
     if Player.x > MapWidth - 64 then
         self:nextLevel()
     end
     if Player.dead then
         self:clean()
+        End.coins = Player.coins
+        End.text = "Too Bad!"
         -- Reload Map entities and Player
         self:load()
         Player:load()
 
         Player.dead = false
-        End.text = "Too Bad!"
         changeGameState("ended")
     end
 end
