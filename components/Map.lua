@@ -1,4 +1,3 @@
---Tileset : https://free-game-assets.itch.io/free-swamp-2d-tileset-pixel-art
 local STI = require "lib.sti"
 local Player = require "objects.Player"
 local Coin = require "objects.Coin"
@@ -35,16 +34,24 @@ function Map:init()
 end
 
 function Map:nextLevel()
-    -- Change to next level and clean previous level
-    self:clean()
     if self.currentLevel + 1 > self.lastLevel then
         -- destroy world change to congrats page
         self.currentLevel = 1
         End.text = "Congratulations!"
+        End.coins = Player.coins
+
+        -- Reload Map entities and Player
+        self:load()
+        Player:load()
+
+        Player.dead = false
         changeGameState("ended")
     else
         self.currentLevel = self.currentLevel + 1
     end
+
+    -- Change to next level and clean previous level
+    self:clean()
     
     self:init()
     Player:resetPosition()
@@ -63,12 +70,13 @@ function Map:update(dt)
     end
     if Player.dead then
         self:clean()
+        End.coins = Player.coins
+        End.text = "Too Bad!"
         -- Reload Map entities and Player
         self:load()
         Player:load()
 
         Player.dead = false
-        End.text = "Too Bad!"
         changeGameState("ended")
     end
 end

@@ -4,6 +4,7 @@ local Text = require "components.Text"
 local Quit = {}
 
 function Quit:load()
+    -- Insert functions and buttons into their respective tables
     self.funcs = {
         backToMenu = function() changeGameState("menu") end,
         quitGame = function() love.event.quit() end
@@ -16,15 +17,13 @@ function Quit:load()
 
 end
 
-function Quit:update(dt)
-    self:runButtonFunction()
-end
+function Quit:update(dt) end
 
 function Quit:runButtonFunction(clicked)
     for name, button in pairs(self.buttons) do
         if button:checkHover(mouse_x, mouse_y) then
             if clicked then
-                love.audio.play(buttonClickSound)
+                love.audio.play(audio.buttonClickSound)
                 button:click()
             end
             button:setButtonColor(0.8, 0, 0)
@@ -39,6 +38,7 @@ function Quit:draw()
     Text("Are You Sure To Quit The Game?", 0, love.graphics.getHeight() * 0.3, love.graphics.getWidth(), "center", 1):draw()
     love.graphics.setFont(mainFont)
 
+    -- Draw all buttons
     for _, button in pairs(self.buttons) do
         button:draw()
     end

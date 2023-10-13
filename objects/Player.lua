@@ -190,7 +190,7 @@ end
 function Player:takeDamage(amount)
     -- Play visual and sfx when player take damage
     self:tintRed()
-    love.audio.play(hurtSFX)
+    love.audio.play(audio.hurtSFX)
 
     -- Check if player still have extra lives
     if self.healths.current - amount > 0 then

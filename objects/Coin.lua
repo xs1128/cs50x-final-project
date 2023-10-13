@@ -3,8 +3,10 @@ local Player = require "objects.Player"
 Coin.__index = Coin
 local activeCoins = {}
 
+-- Create new coins and insert into metatable
 function Coin:new(x, y)
     local instance = setmetatable({}, Coin)
+    -- Instance properties
     instance.x = x
     instance.y = y
     instance.width = 30
@@ -12,6 +14,7 @@ function Coin:new(x, y)
     instance.scaleX = 2
     instance.toBeRemoved = false
 
+    -- Instance physics
     instance.physics = {}
     instance.physics.body = love.physics.newBody(World, instance.x, instance.y, "static")
     instance.physics.shape = love.physics.newRectangleShape(instance.width, instance.height)
@@ -36,11 +39,13 @@ function Coin:new(x, y)
 end
 
 function Coin:update(dt)
+    -- Update coin animation
     self.anim:update(dt)
     self:checkRemove()
 end
 
 function Coin:updateAll(dt)
+    -- Update for all coins in table
     for _, instance in pairs(activeCoins) do
         instance:update(dt)
     end
@@ -63,6 +68,7 @@ function Coin:drawAll()
 end
 
 function Coin:remove()
+    -- Destroy coin physics and remove from table
     for _, instance in pairs(activeCoins) do
         if instance == self then
             self.physics.body:destroy()
@@ -73,10 +79,12 @@ function Coin:remove()
 end
 
 function Coin:removeAll()
+    -- Repeat for all coins
     for _,i in pairs(activeCoins) do
         i.physics.body:destroy()
     end
 
+    -- Set empty coins table
     activeCoins = {}
 end
 

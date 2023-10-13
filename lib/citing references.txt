@@ -1,0 +1,5 @@
+GitHub, karai17, Simple-Tiled-Implementation, 24 March, 2019, accessed on 2 August, 2023, <https://github.com/karai17/Simple-Tiled-Implementation>
+
+GitHub, kikito, anim8 v2.3.1, accessed on 9 June 2023, <https://github.com/kikito/anim8>
+
+love2d forum, georgeprosser, simple slider module, 28 August, 2016, accessed on 9 October 2023, <https://love2d.org/forums/viewtopic.php?t=80711>

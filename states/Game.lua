@@ -9,6 +9,7 @@ local Obstacle = require "objects.Obstacle"
 local Game = {}
 
 function Game:load()
+    -- Create table to keep track of user game state
     self.state = { 
         menu = true,
         running = false,
@@ -17,6 +18,7 @@ function Game:load()
         quit = false
     }
 
+    -- Insert functions and buttons for pause page
     self.funcs = { 
         backToGame = function() changeGameState("running") end,
         settings = function() changeGameState("setting") end,
@@ -50,21 +52,24 @@ end
 function Game:runButtonFunction(clicked)
     for name, button in pairs(self.pausedButtons) do
         if button:checkHover(mouse_x, mouse_y) and clicked then
-            love.audio.play(buttonClickSound)
+            love.audio.play(audio.buttonClickSound)
             button:click()
         end
     end
 end
 
 function Game:draw(faded)
+    -- Draw camera view following player
     Map.level:draw(-Camera.x, -Camera.y, Camera.scale, Camera.scale)
 
+    -- Apply camera for all objects
     Camera:apply()
     Coin:drawAll()
     Obstacle:drawAll()
     Player:draw()
     Camera:clear()
     
+    -- For pause state
     if faded then
         love.graphics.setColor(0, 0, 0, 0.5)
         love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())

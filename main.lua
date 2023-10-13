@@ -5,15 +5,23 @@ local Game = require "states.Game"
 local Setting = require "states.Setting"
 local End = require "states.End"
 local Quit = require "states.Quit"
+local GUI = require "components.GUI"
 local Background = require "components.Background"
 
 function love.load()
     Global:load()
     -- Prevent blurring 
-    love.graphics.setDefaultFilter("nearest")
+    love.graphics.setDefaultFilter("nearest", "nearest")
+
+    -- Set default volume settings
+    audio.bgm:setVolume(audio.defVol)
+    audio.buttonClickSound:setVolume(audio.defVol)
+    audio.hurtSFX:setVolume(audio.defVol)
+    audio.bgm:play()
     
     Background:load()
     Game:load()
+    GUI:load()
     Menu:load()
     Setting:load()
     End:load()
@@ -37,6 +45,7 @@ function  love.update(dt)
         mouseClick = false
     elseif Game.state.setting then
         Setting:runButtonFunction(mouseClick)
+        Setting:update()
         mouseClick = false
     elseif Game.state.ended then
         End:runButtonFunction(mouseClick)
@@ -45,7 +54,6 @@ function  love.update(dt)
         Quit:runButtonFunction(mouseClick)
         mouseClick = false
     end
-
 end
 
 function love.draw()
@@ -56,6 +64,7 @@ function love.draw()
     elseif Game.state.running or Game.state.paused then
         Background:draw("running")        
         Game:draw(Game.state.paused)
+        GUI:draw()
     elseif Game.state.setting then
         Setting:draw()
     elseif Game.state.ended then
@@ -72,7 +81,9 @@ function love.draw()
         love.mouse.setVisible(false)
     end
     -- Display real time user FPS
-    --love.graphics.print("FPS: "..love.timer.getFPS(), love.graphics.getWidth() * 0.9, love.graphics.getHeight() * 0.95)
+    if fpsShow then
+        love.graphics.print(love.timer.getFPS(), love.graphics.getWidth() * 0.9, love.graphics.getHeight() * 0.9, 0, 0.9)
+    end
 end
 
 -- Detect anytime mouse is pressed
@@ -89,7 +100,6 @@ function love.keypressed(key, scancode, isrepeat)
         Game:keypress(key) 
         -- Implement pause function
         if key == "p" or key == "escape" then changeGameState("paused") end
-        
     elseif Game.state.paused then
         -- Return to game
         if key == "p" or key == "escape" then changeGameState("running") end     
@@ -98,8 +108,10 @@ end
 
 -- Global function to change game state
 function changeGameState(state)
+    -- Keep track of coming from which state
     previousState = currentState
     currentState = state
+    
     Game.state.menu = state == 'menu'
     Game.state.running = state == 'running'
     Game.state.paused = state == 'paused'
@@ -107,4 +119,3 @@ function changeGameState(state)
     Game.state.ended = state == 'ended'
     Game.state.quit = state == 'quit'
 end
-    
