@@ -48,34 +48,34 @@
   </object>
  </objectgroup>
  <objectgroup color="#ffff00" id="3" name="entity">
-  <object id="4" name="Coin" type="coin" x="295.33" y="240">
+  <object id="4" name="Coin" type="coin" x="312" y="224">
    <ellipse/>
   </object>
-  <object id="5" name="Coin" type="coin" x="327.33" y="208">
+  <object id="5" name="Coin" type="coin" x="352" y="192">
    <ellipse/>
   </object>
   <object id="6" name="Coin" type="coin" x="391.33" y="176">
    <ellipse/>
   </object>
-  <object id="7" name="Coin" type="coin" x="455.33" y="176">
+  <object id="7" name="Coin" type="coin" x="448" y="176">
    <ellipse/>
   </object>
-  <object id="8" name="Coin" type="coin" x="295.33" y="272">
+  <object id="8" name="Coin" type="coin" x="304" y="264">
    <ellipse/>
   </object>
-  <object id="9" name="Coin" type="coin" x="327.33" y="304">
+  <object id="9" name="Coin" type="coin" x="312" y="304">
    <ellipse/>
   </object>
-  <object id="10" name="Coin" type="coin" x="327.33" y="368">
+  <object id="10" name="Coin" type="coin" x="336" y="344">
    <ellipse/>
   </object>
-  <object id="11" name="Coin" type="coin" x="391.33" y="368">
+  <object id="11" name="Coin" type="coin" x="376" y="368">
    <ellipse/>
   </object>
-  <object id="12" name="Coin" type="coin" x="423.33" y="368">
+  <object id="12" name="Coin" type="coin" x="416" y="368">
    <ellipse/>
   </object>
-  <object id="13" name="Coin" type="coin" x="455.33" y="368">
+  <object id="13" name="Coin" type="coin" x="456" y="360">
    <ellipse/>
   </object>
   <object id="14" name="Coin" type="coin" x="487.33" y="336">
@@ -87,10 +87,10 @@
   <object id="16" name="Coin" type="coin" x="679.33" y="144">
    <ellipse/>
   </object>
-  <object id="17" name="Coin" type="coin" x="615.33" y="176">
+  <object id="17" name="Coin" type="coin" x="632" y="168">
    <ellipse/>
   </object>
-  <object id="18" name="Coin" type="coin" x="615.33" y="208">
+  <object id="18" name="Coin" type="coin" x="608" y="200">
    <ellipse/>
   </object>
   <object id="19" name="Coin" type="coin" x="615.33" y="240">
@@ -108,28 +108,28 @@
   <object id="23" name="Coin" type="coin" x="775.33" y="336">
    <ellipse/>
   </object>
-  <object id="24" name="Coin" type="coin" x="711.33" y="400">
+  <object id="24" name="Coin" type="coin" x="720" y="376">
    <ellipse/>
   </object>
-  <object id="25" name="Coin" type="coin" x="679.33" y="400">
+  <object id="25" name="Coin" type="coin" x="664" y="376">
    <ellipse/>
   </object>
-  <object id="26" name="Coin" type="coin" x="583.33" y="336">
+  <object id="26" name="Coin" type="coin" x="608" y="328">
    <ellipse/>
   </object>
   <object id="27" name="Coin" type="coin" x="903.33" y="112">
    <ellipse/>
   </object>
-  <object id="28" name="Coin" type="coin" x="935.33" y="112">
+  <object id="28" name="Coin" type="coin" x="936" y="112">
    <ellipse/>
   </object>
-  <object id="29" name="Coin" type="coin" x="967.33" y="112">
+  <object id="29" name="Coin" type="coin" x="976" y="112">
    <ellipse/>
   </object>
-  <object id="30" name="Coin" type="coin" x="1031.33" y="112">
+  <object id="30" name="Coin" type="coin" x="1008" y="112">
    <ellipse/>
   </object>
-  <object id="31" name="Coin" type="coin" x="1063.33" y="112">
+  <object id="31" name="Coin" type="coin" x="1040" y="112">
    <ellipse/>
   </object>
   <object id="32" name="Coin" type="coin" x="903.33" y="144">
@@ -141,16 +141,16 @@
   <object id="34" name="Coin" type="coin" x="903.33" y="208">
    <ellipse/>
   </object>
-  <object id="35" name="Coin" type="coin" x="903.33" y="240">
+  <object id="35" name="Coin" type="coin" x="912" y="240">
    <ellipse/>
   </object>
-  <object id="36" name="Coin" type="coin" x="967.33" y="240">
+  <object id="36" name="Coin" type="coin" x="960" y="240">
    <ellipse/>
   </object>
-  <object id="37" name="Coin" type="coin" x="1063.33" y="272">
+  <object id="37" name="Coin" type="coin" x="1064" y="280">
    <ellipse/>
   </object>
-  <object id="38" name="Coin" type="coin" x="1063.33" y="272">
+  <object id="38" name="Coin" type="coin" x="1040" y="256">
    <ellipse/>
   </object>
   <object id="39" name="Coin" type="coin" x="1063.33" y="336">
@@ -165,19 +165,19 @@
   <object id="42" name="Coin" type="coin" x="967.33" y="368">
    <ellipse/>
   </object>
-  <object id="43" name="Coin" type="coin" x="903.33" y="368">
+  <object id="43" name="Coin" type="coin" x="920" y="360">
    <ellipse/>
   </object>
-  <object id="44" name="Coin" type="coin" x="871.33" y="336">
+  <object id="44" name="Coin" type="coin" x="888" y="336">
    <ellipse/>
   </object>
-  <object id="45" name="Coin" type="coin" x="1031.33" y="240">
+  <object id="45" name="Coin" type="coin" x="1008" y="240">
    <ellipse/>
   </object>
   <object id="46" name="Coin" type="coin" x="1287.33" y="368">
    <ellipse/>
   </object>
-  <object id="47" name="Coin" type="coin" x="1255.33" y="336">
+  <object id="47" name="Coin" type="coin" x="1248" y="360">
    <ellipse/>
   </object>
   <object id="48" name="Coin" type="coin" x="1223.33" y="336">
@@ -186,67 +186,67 @@
   <object id="49" name="Coin" type="coin" x="1191.33" y="304">
    <ellipse/>
   </object>
-  <object id="50" name="Coin" type="coin" x="1159.33" y="240">
+  <object id="50" name="Coin" type="coin" x="1176" y="256">
    <ellipse/>
   </object>
-  <object id="51" name="Coin" type="coin" x="1159.33" y="208">
+  <object id="51" name="Coin" type="coin" x="1176" y="216">
    <ellipse/>
   </object>
-  <object id="52" name="Coin" type="coin" x="1191.33" y="176">
+  <object id="52" name="Coin" type="coin" x="1184" y="176">
    <ellipse/>
   </object>
-  <object id="53" name="Coin" type="coin" x="1223.33" y="112">
+  <object id="53" name="Coin" type="coin" x="1216" y="128">
    <ellipse/>
   </object>
-  <object id="54" name="Coin" type="coin" x="1223.33" y="80">
+  <object id="54" name="Coin" type="coin" x="1248" y="104">
    <ellipse/>
   </object>
-  <object id="55" name="Coin" type="coin" x="1255.33" y="80">
+  <object id="55" name="Coin" type="coin" x="1280" y="88">
    <ellipse/>
   </object>
-  <object id="56" name="Coin" type="coin" x="1351.33" y="80">
+  <object id="56" name="Coin" type="coin" x="1328" y="80">
    <ellipse/>
   </object>
-  <object id="57" name="Coin" type="coin" x="1383.33" y="80">
+  <object id="57" name="Coin" type="coin" x="1376" y="88">
    <ellipse/>
   </object>
-  <object id="58" name="Coin" type="coin" x="1383.33" y="112">
+  <object id="58" name="Coin" type="coin" x="1408" y="112">
    <ellipse/>
   </object>
-  <object id="59" name="Coin" type="coin" x="1415.33" y="176">
+  <object id="59" name="Coin" type="coin" x="1424" y="160">
    <ellipse/>
   </object>
-  <object id="60" name="Coin" type="coin" x="1415.33" y="208">
+  <object id="60" name="Coin" type="coin" x="1432" y="200">
    <ellipse/>
   </object>
-  <object id="61" name="Coin" type="coin" x="1415.33" y="272">
+  <object id="61" name="Coin" type="coin" x="1432" y="248">
    <ellipse/>
   </object>
-  <object id="62" name="Coin" type="coin" x="1383.33" y="304">
+  <object id="62" name="Coin" type="coin" x="1424" y="296">
    <ellipse/>
   </object>
-  <object id="63" name="Coin" type="coin" x="1383.33" y="336">
+  <object id="63" name="Coin" type="coin" x="1408" y="336">
    <ellipse/>
   </object>
-  <object id="64" name="Coin" type="coin" x="1351.33" y="368">
+  <object id="64" name="Coin" type="coin" x="1376" y="368">
    <ellipse/>
   </object>
-  <object id="65" name="Coin" type="coin" x="1319.33" y="368">
+  <object id="65" name="Coin" type="coin" x="1336" y="376">
    <ellipse/>
   </object>
   <object id="66" name="Coin" type="coin" x="2759.33" y="336">
    <ellipse/>
   </object>
-  <object id="67" name="Coin" type="coin" x="2663.33" y="304">
+  <object id="67" name="Coin" type="coin" x="2688" y="288">
    <ellipse/>
   </object>
-  <object id="68" name="Coin" type="coin" x="2567.33" y="240">
+  <object id="68" name="Coin" type="coin" x="2624" y="224">
    <ellipse/>
   </object>
-  <object id="69" name="Coin" type="coin" x="2535.33" y="208">
+  <object id="69" name="Coin" type="coin" x="2600" y="160">
    <ellipse/>
   </object>
-  <object id="70" name="Coin" type="coin" x="2567.33" y="112">
+  <object id="70" name="Coin" type="coin" x="2640" y="112">
    <ellipse/>
   </object>
   <object id="71" name="Coin" type="coin" x="2695.33" y="80">
@@ -255,25 +255,25 @@
   <object id="72" name="Coin" type="coin" x="2759.33" y="112">
    <ellipse/>
   </object>
-  <object id="73" name="Coin" type="coin" x="2791.33" y="144">
+  <object id="73" name="Coin" type="coin" x="2824" y="120">
    <ellipse/>
   </object>
-  <object id="74" name="Coin" type="coin" x="2791.33" y="144">
+  <object id="74" name="Coin" type="coin" x="2800" y="168">
    <ellipse/>
   </object>
-  <object id="75" name="Coin" type="coin" x="2887.33" y="80">
+  <object id="75" name="Coin" type="coin" x="2872" y="80">
    <ellipse/>
   </object>
-  <object id="76" name="Coin" type="coin" x="2951.33" y="80">
+  <object id="76" name="Coin" type="coin" x="2936" y="104">
    <ellipse/>
   </object>
-  <object id="77" name="Coin" type="coin" x="2983.33" y="176">
+  <object id="77" name="Coin" type="coin" x="2992" y="160">
    <ellipse/>
   </object>
-  <object id="78" name="Coin" type="coin" x="2919.33" y="272">
+  <object id="78" name="Coin" type="coin" x="2936" y="232">
    <ellipse/>
   </object>
-  <object id="79" name="Coin" type="coin" x="2887.33" y="336">
+  <object id="79" name="Coin" type="coin" x="2888" y="304">
    <ellipse/>
   </object>
   <object id="80" name="Coin" type="coin" x="2823.33" y="368">
