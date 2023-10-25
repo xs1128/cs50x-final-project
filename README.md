@@ -1,7 +1,6 @@
 # CS50x Final Project 
-#### Video Demo:  <URL HERE>
+#### Video Demo:  <https://youtu.be/e5vlkxsIVWo>
 #### Description:
-TODO
 
 ![Menu](/assets/images/Menu%20Screenshot.png) ![Setting](/assets/images/Setting%20Screenshot.png)
 
