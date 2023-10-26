@@ -20,9 +20,9 @@ I decided to make a game for my CS50x Final Project because I am very interested
 1. Run it<br>- Windows : Drag the file to `love.exe` or `lovec.exe` (can be shortcut) inside the `LOVE` folder (From Step 1)<br>- GNU/Linux and macOS : Please refer to [LOVE - Game Distribution](https://love2d.org/wiki/Game_Distribution)
 
 # Rules
-- Player have 3 lives at the start
-- Player should aim to collect all the coins
-- Player should aim to not step on traps set
+- The player has 3 lives at the start
+- The player should aim to collect all the coins
+- The player should avoid stepping on the traps set
 - There are 3 levels
 
 # Controls
