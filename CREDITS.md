@@ -22,7 +22,7 @@
 - FREE MUSIC ARCHIEVE, [Komiku](https://freemusicarchive.org/music/Komiku/), Poupi's Incredible adventures!, [Good Fellow](https://freemusicarchive.org/music/Komiku/Poupis_incredible_adventures_/Komiku_-_Poupis_incredible_adventures__-_13_Good_Fellow/), 22 January, 2018, accessed on 9 October, 2023 ([CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
 
 ##
-#### Check out the full citation file [here](/assets/citation.txt) (Fonts, Images, SFX) <br><br>
+#### Check out the full citation file [here](assets/citation.txt) (Fonts, Images, SFX) <br><br>
 
 ## Libraries / Modules
 - GitHub, karai17, [Simple-Tiled-Implementation](https://github.com/karai17/Simple-Tiled-Implementation), 24 March, 2019, accessed on 2 August, 2023 ([MIT/X11 Open Source License](https://opensource.org/license/mit/) or [here](https://github.com/karai17/Simple-Tiled-Implementation/blob/master/LICENSE.md))
@@ -32,7 +32,7 @@
 - love2d forum, georgeprosser, [simple-slider module](https://love2d.org/forums/viewtopic.php?t=80711), 28 August, 2016, accessed on 9 October 2023
 
 ##
-#### Check out the citation file [here](/lib/library_citation.txt) (Libraries) <br><br>
+#### Check out the citation file [here](lib/library_citation.txt) (Libraries) <br><br>
 
 ## Game Framework / Engine: 
 - **[LÖVE](https://love2d.org/)** ([zlib](https://zlib.net/)/[libpng](http://libpng.org/pub/png/libpng.html) License) <br>
