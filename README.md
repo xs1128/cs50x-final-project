@@ -9,10 +9,10 @@ This project is a game made using [Lua](https://www.lua.org/) programming langua
 This game contains different states like Menu, Game, Setting, End and Quit. These states indicate different pages and design for any game situation.
 I am inspired by [Platform Games](https://en.wikipedia.org/wiki/Platformer) such as Little Big Planet, Super Mario Bros, and Cuphead.
 
-The player aims to collect coins and at the same time not hurt for more than 3 times by the traps set around the map.
-Player also can access to the setting state to adjust game volume and enable [FPS/ Frame rate](https://en.wikipedia.org/wiki/Frame_rate) display.
+The player aims to collect coins and at the same time, avoid being hurt more than 3 times by the traps set around the map.
+The player can also access the setting state to adjust the game volume and enable [FPS/ Frame rate](https://en.wikipedia.org/wiki/Frame_rate) display.
 
-I decided to make a game for my CS50x Final Project because I am very interested in game development. It is also a great opportunity for me to learn new things, like Lua and LOVE2d. I also learnt exciting things like, game engines, game designs, and game genres during my exploration.
+I decided to make a game for my CS50x Final Project because I am very interested in game development. It is also a great opportunity for me to learn new things, like Lua and LOVE2d. I also learnt exciting things like game engines, game designs, and game genres during my exploration.
 
 # How To Play Game
 1. Download [LÖVE](https://love2d.org/)
@@ -28,3 +28,6 @@ I decided to make a game for my CS50x Final Project because I am very interested
 # Controls
 - Movement -  `Right` and `Left` arrow keys to move horizontally || `Spacebar` to jump vertically ||
 - Pause - `P` or `Esc` to pause game (When game level is running)
+
+# Credits
+- Please refer to [CREDITS.md](/CREDITS.md)
